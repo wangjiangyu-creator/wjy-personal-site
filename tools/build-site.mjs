@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  academicActivities,
   academicHighlights,
   expertiseAreas,
   mediaRecords,
@@ -18,11 +19,12 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const labels = {
   en: {
-    nav: ["Home", "Publications", "Commentaries", "Media Commentaries", "中文"],
+    nav: ["Home", "Publications", "Commentaries", "Media", "Academic", "中文"],
     home: "index.html",
     publications: "publications.html",
     commentaries: "commentaries.html",
     media: "media.html",
+    academic: "academic.html",
     langHref: "zh/index.html",
     langName: "中文",
     bio: "Short Bio",
@@ -35,9 +37,12 @@ const labels = {
     allPublications: "View all publications",
     politicalCommentaries: "Commentaries",
     allCommentaries: "View commentaries",
-    mediaCommentaries: "Media Commentaries",
+    mediaCommentaries: "Media",
+    academicActivities: "Academic Activities",
+    allAcademic: "View academic activities",
+    academicFilters: "Academic Activity Filters",
     mediaExposure: "Interviews and Media Exposure",
-    allMedia: "View media commentaries",
+    allMedia: "View media",
     verified: "Verified profile links only",
     verify: "Requires final publication check",
     sourceNote: "Sources",
@@ -49,11 +54,12 @@ const labels = {
     noChinese: "Chinese title not supplied in the CV",
   },
   zh: {
-    nav: ["首页", "出版物", "时政评论", "媒体评论", "English"],
+    nav: ["首页", "出版物", "时政评论", "媒体评论", "学术活动", "English"],
     home: "index.html",
     publications: "publications.html",
     commentaries: "commentaries.html",
     media: "media.html",
+    academic: "academic.html",
     langHref: "../index.html",
     langName: "English",
     bio: "简介",
@@ -67,6 +73,9 @@ const labels = {
     politicalCommentaries: "时政评论",
     allCommentaries: "查看时政评论",
     mediaCommentaries: "媒体评论",
+    academicActivities: "学术活动",
+    allAcademic: "查看学术活动",
+    academicFilters: "学术活动筛选",
     mediaExposure: "媒体报道与采访",
     allMedia: "查看媒体评论",
     verified: "仅列入已核实主页",
@@ -94,6 +103,14 @@ const mediaTypeZh = new Map([
   ["commentary", "时政评论"],
   ["exposure", "媒体报道与采访"],
 ]);
+
+const activityRoleLabels = {
+  speaker: { en: "Speaker", zh: "发言人" },
+  host: { en: "Host", zh: "主持人" },
+  participant: { en: "Participant", zh: "与会嘉宾" },
+  organizer: { en: "Organizer", zh: "组织者" },
+  editor: { en: "Editor / speaker", zh: "主编／发言人" },
+};
 
 function esc(value = "") {
   return String(value)
@@ -144,6 +161,10 @@ function displayMediaType(type, lang) {
   return type === "commentary" ? "Commentary" : "Media coverage / interview";
 }
 
+function displayActivityRole(role, lang) {
+  return localized(activityRoleLabels[role], lang) || role;
+}
+
 function nav(page, lang) {
   const l = labels[lang];
   const links = [
@@ -151,7 +172,8 @@ function nav(page, lang) {
     [l.nav[1], internalHref("publications.html", lang), page === "publications"],
     [l.nav[2], internalHref("commentaries.html", lang), page === "commentaries"],
     [l.nav[3], internalHref("media.html", lang), page === "media"],
-    [l.nav[4], counterpartHref(page === "home" ? "index.html" : `${page}.html`, lang), false],
+    [l.nav[4], internalHref("academic.html", lang), page === "academic"],
+    [l.nav[5], counterpartHref(page === "home" ? "index.html" : `${page}.html`, lang), false],
   ];
   return links
     .map(([text, href, active]) => `<a class="${active ? "active" : ""}" href="${href}">${esc(text)}</a>`)
@@ -312,6 +334,22 @@ function mediaCard(item, lang, compact = false) {
     <p>${esc(item.outlet)}</p>
     ${summary && !compact ? `<p class="record-summary">${esc(summary)}</p>` : ""}
     ${compact ? "" : `<div class="tags">${topics}</div>`}
+  </article>`;
+}
+
+function academicCard(item, lang) {
+  const title = localized(item.title, lang) || localized(item.title, "en");
+  const summary = localized(item.summary, lang);
+  const topics = item.topicIds.map((id) => `<span>${esc(topicLookup(id, lang))}</span>`).join("");
+  return `<article class="record-card" data-record data-role="${esc(item.role)}" data-topic="${esc(item.topicIds.join(" "))}" data-year="${esc(item.date.slice(0, 4))}">
+    <div class="record-meta">
+      <span>${esc(item.date)}</span>
+      <span>${esc(displayActivityRole(item.role, lang))}</span>
+      <span>${esc(item.organizer)}</span>
+    </div>
+    <h3>${externalLink(item, title)}</h3>
+    <p>${esc(summary)}</p>
+    <div class="tags">${topics}</div>
   </article>`;
 }
 
@@ -567,15 +605,52 @@ function mediaPage(lang) {
   });
 }
 
+function academicPage(lang) {
+  const l = labels[lang];
+  const records = academicActivities.slice().sort((a, b) => b.date.localeCompare(a.date));
+  const yearValues = [...new Set(records.map((item) => item.date.slice(0, 4)))].sort((a, b) => b.localeCompare(a));
+  const roleOptions = [...new Set(records.map((item) => item.role))].map((role) => ({ value: role, label: displayActivityRole(role, lang) }));
+  const topicOptions = researchTopics.map((topic) => ({ value: topic.id, label: localized(topic.title, lang) }));
+  const body = `
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">${esc(l.academicActivities)}</p>
+      <h1>${esc(l.academicActivities)}</h1>
+      <p class="lead">${esc(lang === "zh" ? "近五年会议、论坛、讲座和学术交流记录；中文页保留会议报道原题，并提供中文简介。" : "A recent record of conferences, forums, lectures, and scholarly exchanges. Chinese-source reports are presented here with concise English translations for orientation.")}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="filter-panel">
+        ${filterButtons(yearValues, "academic", "year", lang, (value) => value)}
+        ${filterButtons(roleOptions, "academic", "role", lang)}
+        ${filterButtons(topicOptions, "academic", "topic", lang)}
+      </div>
+      <div class="record-list" data-record-container="academic">
+        ${records.map((item) => academicCard(item, lang)).join("")}
+      </div>
+    </div>
+  </section>`;
+  return layout({
+    lang,
+    page: "academic",
+    title: l.academicActivities,
+    description: "Academic activities by Professor Wang Jiangyu",
+    body,
+  });
+}
+
 const outputs = new Map([
   ["index.html", homePage("en")],
   ["publications.html", publicationsPage("en")],
   ["commentaries.html", commentariesPage("en")],
   ["media.html", mediaPage("en")],
+  ["academic.html", academicPage("en")],
   ["zh/index.html", homePage("zh")],
   ["zh/publications.html", publicationsPage("zh")],
   ["zh/commentaries.html", commentariesPage("zh")],
   ["zh/media.html", mediaPage("zh")],
+  ["zh/academic.html", academicPage("zh")],
 ]);
 
 for (const [rel, html] of outputs) {

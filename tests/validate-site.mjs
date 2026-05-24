@@ -10,10 +10,12 @@ const requiredFiles = [
   "publications.html",
   "commentaries.html",
   "media.html",
+  "academic.html",
   "zh/index.html",
   "zh/publications.html",
   "zh/commentaries.html",
   "zh/media.html",
+  "zh/academic.html",
   "assets/site.css",
   "assets/site.js",
   "src/data/site-data.mjs",
@@ -38,6 +40,36 @@ assert.deepEqual(profileNames, ["CityUHK Profile", "CityUHK Scholar", "Google Sc
 assert.ok(data.profileMetrics.length >= 4, "Homepage should include profile metrics");
 assert.ok(data.expertiseAreas.length >= 7, "Homepage should include expertise areas");
 assert.ok(data.academicHighlights.length >= 6, "Homepage should include academic and professional highlights");
+
+assert.ok(Array.isArray(data.academicActivities), "Academic activities data must be exported");
+assert.ok(data.academicActivities.length >= 15, "Academic page should include a substantial five-year activity set");
+assert.ok(
+  data.academicActivities.every((item) => item.id && item.date && item.title?.en && item.title?.zh && item.summary?.en && item.summary?.zh && item.url),
+  "Academic activity records must be bilingual and source-linked",
+);
+assert.ok(
+  data.academicActivities.every((item) => item.date >= "2021-05-24"),
+  "Academic activity records should focus on the past five years",
+);
+for (const id of [
+  "must-cross-border-legal-review-forum-2026",
+  "nwupul-hk-legal-services-forum-2025",
+  "multilateralism-international-rule-law-2025",
+  "foreign-related-rule-of-law-forum-2025",
+  "reimagining-international-economic-law-2025",
+  "unescap-regional-trade-agreements-2024",
+  "ip-judicial-protection-gba-2024",
+  "guangzhou-forum-2024",
+  "aclf-annual-conference-2024",
+  "gba-legal-institutional-cooperation-2024",
+  "histories-international-law-china-conference-2023",
+  "east-asia-forum-2023",
+  "climate-change-post-pandemic-2022",
+  "china-judicial-reform-workshop-2022",
+  "research-retreat-2021",
+]) {
+  assert.ok(data.academicActivities.some((item) => item.id === id), `Missing prioritized academic activity: ${id}`);
+}
 
 assert.ok(data.publications.length >= 40, "Expected a substantial CV-derived publications list");
 assert.ok(data.publications.filter((item) => item.featured).length >= 5, "Homepage needs at least five featured publications");
@@ -130,6 +162,8 @@ const commentariesPage = fs.readFileSync(path.join(root, "commentaries.html"), "
 const zhCommentariesPage = fs.readFileSync(path.join(root, "zh/commentaries.html"), "utf8");
 const mediaPage = fs.readFileSync(path.join(root, "media.html"), "utf8");
 const zhMediaPage = fs.readFileSync(path.join(root, "zh/media.html"), "utf8");
+const academicPage = fs.readFileSync(path.join(root, "academic.html"), "utf8");
+const zhAcademicPage = fs.readFileSync(path.join(root, "zh/academic.html"), "utf8");
 for (const expected of [
   "https://scholars.cityu.edu.hk/en/persons/jwang623",
   "https://scholar.google.com/citations?user=3xl2kbAAAAAJ",
@@ -144,11 +178,14 @@ assert.ok(zhIndex.includes("王江雨教授及其研究"), "Chinese homepage tit
 assert.ok(index.includes("Academic Leadership and Professional Engagement"), "Homepage should include leadership detail");
 assert.ok(index.includes("Research Expertise"), "Homepage should include expertise detail");
 assert.ok(index.includes('href="commentaries.html"') && index.includes("Commentaries"), "English navigation should include Commentaries");
-assert.ok(index.includes("Media Commentaries"), "English navigation should rename Media to Media Commentaries");
+assert.ok(index.includes('href="academic.html"') && index.includes("Academic"), "English navigation should include Academic");
+assert.ok(index.includes('href="media.html"') && index.includes(">Media<"), "English navigation should label Media as Media");
+assert.ok(!index.includes(">Media Commentaries<"), "English navigation should not use Media Commentaries");
 assert.ok(zhIndex.includes("学术与专业职务"), "Chinese homepage should include leadership detail");
 assert.ok(publicationsPage.includes('data-filter-criterion="topic"'), "Publications page should filter by topic");
 assert.ok(publicationsPage.includes('data-filter-criterion="language"'), "Publications page should filter by language");
 assert.ok(zhIndex.includes('href="commentaries.html"') && zhIndex.includes("\u65f6\u653f\u8bc4\u8bba"), "Chinese navigation should include Commentaries");
+assert.ok(zhIndex.includes('href="academic.html"') && zhIndex.includes("\u5b66\u672f\u6d3b\u52a8"), "Chinese navigation should include Academic activities");
 assert.ok(zhIndex.includes("\u5a92\u4f53\u8bc4\u8bba"), "Chinese navigation should rename Media to Media Commentaries");
 assert.ok(commentariesPage.includes('data-record-container="commentaries"'), "Commentaries page should have a dedicated record container");
 assert.ok(commentariesPage.includes('data-type="commentary"'), "Commentaries page should include authored commentaries");
@@ -170,6 +207,25 @@ assert.ok(!mediaPage.includes('data-type="commentary"'), "Media page should not 
 assert.ok(mediaPage.includes('data-type="exposure"'), "Media page should keep media exposure records");
 assert.ok(!mediaPage.includes("Huawei's Meng Wanzhou: Can Canada rectify a bad start?"), "Authored commentaries should be absent from Media Commentaries");
 assert.ok(zhMediaPage.includes("\u5a92\u4f53\u8bc4\u8bba"), "Chinese media page should use the renamed heading");
+assert.ok(academicPage.includes('data-record-container="academic"'), "Academic page should have a dedicated record container");
+assert.ok(academicPage.includes("Academic Activities"), "English Academic page should use the Academic Activities heading");
+assert.ok(
+  academicPage.includes("Professor Wang was invited to speak at the international symposium on multilateralism"),
+  "English Academic page should include descriptive translations",
+);
+assert.ok(
+  academicPage.includes("Professor Wang joined the fifth Mainland-Hong Kong-Macao legal education deans forum"),
+  "English Academic page should include the 2026 forum translation",
+);
+assert.ok(zhAcademicPage.includes("\u5b66\u672f\u6d3b\u52a8"), "Chinese Academic page should use the Chinese heading");
+assert.ok(
+  zhAcademicPage.includes("\u738b\u6c5f\u96e8\u6559\u6388\u53d7\u9080\u51fa\u5e2d\u300c\u591a\u908a\u4e3b\u7fa9\u8207\u570b\u969b\u6cd5\u6cbb\u5efa\u8a2d\u300d\u570b\u969b\u7814\u8a0e\u6703\u4e26\u767c\u8868\u4e3b\u984c\u6f14\u8b1b"),
+  "Chinese Academic page should preserve original conference report titles",
+);
+assert.ok(
+  zhAcademicPage.includes("\u540d\u6821\u6cd5\u5b66\u6559\u80b2\u5bb6\u4e91\u96c6 \u6fb3\u79d1\u5927\u6cd5\u5b66\u9662\u6210\u529f\u4e3e\u529e\u7b2c\u4e94\u5c4a\u300c\u5185\u5730\u4e0e\u6e2f\u6fb3\u6cd5\u5b66\u6559\u80b2\u9662\u957f\u8bba\u575b\u300d\u66a8\u300a\u8de8\u57df\u6cd5\u5f8b\u8bc4\u8bba\u300b\u521b\u520a\u53f7\u53d1\u5e03\u4eea\u5f0f"),
+  "Chinese Academic page should preserve the 2026 forum report title",
+);
 
 const siteJs = fs.readFileSync(path.join(root, "assets/site.js"), "utf8");
 assert.ok(siteJs.includes("activeFilters"), "Filter script should combine active filters");

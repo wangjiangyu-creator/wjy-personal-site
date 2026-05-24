@@ -226,6 +226,249 @@ export const researchTopics = [
   },
 ];
 
+export const academicActivities = [
+  {
+    id: "must-cross-border-legal-review-forum-2026",
+    date: "2026-04-29",
+    role: "editor",
+    organizer: "Macau University of Science and Technology Faculty of Law",
+    title: {
+      en: "MUST Faculty of Law holds the fifth Mainland-Hong Kong-Macao legal education deans forum and launch of Cross-Border Legal Review",
+      zh: "名校法学教育家云集 澳科大法学院成功举办第五届「内地与港澳法学教育院长论坛」暨《跨域法律评论》创刊号发布仪式",
+    },
+    summary: {
+      en: "Professor Wang joined the fifth Mainland-Hong Kong-Macao legal education deans forum as editor-in-chief of Asia Pacific Law Review and discussed a new normative framework for international rule-making amid geopolitics and sustainable development.",
+      zh: "论坛聚焦现代法治前沿问题与法学教育，王江雨教授以《亚太法律评论》主编身份参加第一单元，并分享地缘政治与可持续发展背景下国际规则制定的新规范框架。",
+    },
+    url: "https://www.must.edu.mo/id-13630/article/view/id-40833.html?locale=zh_CN",
+    topicIds: ["foreign-related-rule-of-law", "international-order"],
+  },
+  {
+    id: "nwupul-hk-legal-services-forum-2025",
+    date: "2025-05-27",
+    role: "speaker",
+    organizer: "Northwest University of Political Science and Law",
+    title: {
+      en: "CityUHK School of Law and Northwest University of Political Science and Law participate in the 7th Hong Kong Legal Services Forum and sign cooperation agreements",
+      zh: "我校与香港城市大学法律学院共同参加第七届香港法律服务论坛并签署合作协议",
+    },
+    summary: {
+      en: "Professor Wang attended the forum and related cooperation activities; the report also notes that he delivered an academic lecture on paradigm shifts and plural reconstruction in the international monetary and financial order.",
+      zh: "报道记载，王江雨教授随城大法律学院参加第七届香港法律服务论坛及合作交流活动，并为西北政法大学经济法学院师生作“国际金融货币秩序的范式转移与多元化重构”学术讲座。",
+    },
+    url: "https://www.nwupl.edu.cn/news/zgxw/jlgz/135219.htm",
+    topicIds: ["ielr", "foreign-related-rule-of-law"],
+  },
+  {
+    id: "multilateralism-international-rule-law-2025",
+    date: "2025-10-23",
+    role: "speaker",
+    organizer: "Chinese Academy of Social Sciences Institute of International Law and Institute of Law",
+    title: {
+      en: "Professor Wang Jiangyu invited to the international symposium on multilateralism and international rule of law and delivered a keynote speech",
+      zh: "王江雨教授受邀出席「多邊主義與國際法治建設」國際研討會並發表主題演講",
+    },
+    summary: {
+      en: "Professor Wang was invited to speak at the international symposium on multilateralism and international rule of law, where he addressed the changing role of international law in an era of multipolar transformation.",
+      zh: "王江雨教授应邀出席纪念联合国成立80周年国际研讨会，并以“国际秩序多极化转型时代国际法的角色变迁”为题发表演讲，讨论国际法在全球秩序重构中的稳定与调节功能。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/CCCL/News_20251023_24.pdf",
+    topicIds: ["international-order", "foreign-related-rule-of-law"],
+  },
+  {
+    id: "foreign-related-rule-of-law-forum-2025",
+    date: "2025-10-26",
+    role: "speaker",
+    organizer: "Chinese Academy of Social Sciences Institute of International Law",
+    title: {
+      en: "Professor Wang Jiangyu invited to the Third Foreign-Related Rule of Law Forum and delivered a speech",
+      zh: "王江雨教授受邀出席「第三屆涉外法治論壇」並發表演講",
+    },
+    summary: {
+      en: "Professor Wang attended the Third Foreign-Related Rule of Law Forum in Shenzhen and spoke on methodological issues in foreign-related rule of law.",
+      zh: "王江雨教授应邀出席在深圳举行的第三届涉外法治论坛，并以“涉外法治的方法论问题”为题发言。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/CCCL/News_20251026.pdf",
+    topicIds: ["foreign-related-rule-of-law"],
+  },
+  {
+    id: "reimagining-international-economic-law-2025",
+    date: "2025-09-08",
+    role: "host",
+    organizer: "Centre for Chinese and Comparative Law, CityUHK",
+    title: {
+      en: "Reimagining International Economic Law",
+      zh: "重塑國際經濟法：中國法與比較法研究中心探討全球經濟法律秩序的新未來",
+    },
+    summary: {
+      en: "CCCL hosted a lecture on the future of international economic law, with Professor Wang chairing the discussion and CityUHK faculty serving as discussants.",
+      zh: "CCCL举办“重塑国际经济法”学术讲座，王江雨教授担任主持，围绕全球经济法律秩序、跨国法律秩序与制度转型展开讨论。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/CCCL/2025_09/N20250908_%E9%87%8D%E5%A1%91%E5%9C%8B%E9%9A%9B%E7%B6%93%E6%BF%9F%E6%B3%95.pdf",
+    topicIds: ["ielr", "international-order"],
+  },
+  {
+    id: "unescap-regional-trade-agreements-2024",
+    date: "2024-12-17",
+    role: "speaker",
+    organizer: "UNESCAP",
+    title: {
+      en: "Prof. Wang Jiangyu Delivers Expert Insights at UNESCAP Meeting on Regional Trade Agreements",
+      zh: "Prof. Wang Jiangyu Delivers Expert Insights at UNESCAP Meeting on Regional Trade Agreements",
+    },
+    summary: {
+      en: "At UNESCAP's expert group meeting on emerging trends in regional trade agreements, Professor Wang discussed state-owned enterprises, competitive neutrality, governance standards, and regulatory approaches in RTAs.",
+      zh: "王江雨教授作为受邀专家参加联合国亚太经社会区域贸易协定新趋势专家组会议，围绕区域贸易协定中的国有企业规则、竞争中立、治理标准和监管路径发表意见。",
+    },
+    url: "https://www.cityu.edu.hk/slw/cccl/20241217_news.html",
+    topicIds: ["ielr", "company-law"],
+  },
+  {
+    id: "ip-judicial-protection-gba-2024",
+    date: "2024-12-10",
+    role: "participant",
+    organizer: "Guangzhou Intellectual Property Court",
+    title: {
+      en: "Professor Wang Jiangyu invited to the international symposium on intellectual property judicial protection for GBA development",
+      zh: "王江雨教授受邀參加 “助力大灣區建設 護航高品質發展” 智慧財產權司法保護國際研討會",
+    },
+    summary: {
+      en: "Professor Wang represented CityUHK at the Guangzhou symposium, signed a cooperation agreement with Guangzhou Intellectual Property Court, and participated in the release of selected case outcomes.",
+      zh: "王江雨教授代表香港城市大学出席广州举行的智慧财产权司法保护国际研讨会，与广州知识产权法院签署合作协议，并参与发布十年精品案例培育成果。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/cccl/pnews/20241210%20%E7%8E%8B%E6%B1%9F%E9%9B%A8%E6%95%99%E6%8E%88%E5%8F%97%E9%82%80%E5%8F%83%E5%8A%A0%20%E2%80%9C%E5%8A%A9%E5%8A%9B%E5%A4%A7%E7%81%A3%E5%8D%80%E5%BB%BA%E8%A8%AD%20%E8%AD%B7%E8%88%AA%E9%AB%98%E5%93%81%E8%B3%AA%E7%99%BC%E5%B1%95%E2%80%9D%20%E6%99%BA%E6%85%A7%E8%B2%A1%E7%94%A2%E6%AC%8A%E5%8F%B8%E6%B3%95%E4%BF%9D%E8%AD%B7%E5%9C%8B%E9%9A%9B%E7%A0%94%E8%A8%8E%E6%9C%83.pdf",
+    topicIds: ["gba", "foreign-related-rule-of-law"],
+  },
+  {
+    id: "guangzhou-forum-2024",
+    date: "2024-12-07",
+    role: "speaker",
+    organizer: "Guangzhou Institute of the Greater Bay Area",
+    title: {
+      en: "Professor Wang Jiangyu invited to Guangzhou Forum 2024 Annual Meeting",
+      zh: "王江雨教授受邀參加廣州粵港澳大灣區研究院廣州論壇2024年年會",
+    },
+    summary: {
+      en: "Professor Wang spoke at the Guangzhou Forum annual meeting on Hong Kong and Singapore as international metropolitan models, highlighting legal systems, openness, markets, business environment, and AI governance.",
+      zh: "王江雨教授受邀参加广州论坛2024年年会，从国际化大都市角度讨论香港和新加坡的发展优势，并谈及法制、开放贸易投资机制、营商环境与人工智能治理规则。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/cccl/pnews/20241207_1208%20%E7%8E%8B%E6%B1%9F%E9%9B%A8%E6%95%99%E6%8E%88%E5%8F%97%E9%82%80%E5%8F%83%E5%8A%A0%E5%BB%A3%E5%B7%9E%E7%B2%B5%E6%B8%AF%E6%BE%B3%E5%A4%A7%E7%81%A3%E5%8D%80%E7%A0%94%E7%A9%B6%E9%99%A2%E5%BB%A3%E5%B7%9E%E8%AB%96%E5%A3%872024%E5%B9%B4%E5%B9%B4%E6%9C%83.pdf",
+    topicIds: ["gba", "hong-kong"],
+  },
+  {
+    id: "aclf-annual-conference-2024",
+    date: "2024-04-11",
+    role: "organizer",
+    organizer: "Asian Corporate Law Forum",
+    title: {
+      en: "A Successful Launch - Asian Corporate Law Forum (ACLF)",
+      zh: "A Successful Launch - Asian Corporate Law Forum (ACLF)",
+    },
+    summary: {
+      en: "CityUHK School of Law joined ACLF as the only Hong Kong law school founding member, a development linked in the report to Professor Wang's leadership in corporate law and governance research.",
+      zh: "报道指出，城大法律学院作为香港唯一代表加入亚洲公司法论坛创始成员，体现了学院在公司法与公司治理研究方面的实力以及王江雨教授的领导作用。",
+    },
+    url: "https://www.cityu.edu.hk/slw/cccl/20240502_news.html",
+    topicIds: ["company-law"],
+  },
+  {
+    id: "gba-legal-institutional-cooperation-2024",
+    date: "2024-01-27",
+    role: "organizer",
+    organizer: "CCCL and Guangzhou Institute of the Greater Bay Area",
+    title: {
+      en: "International Conference on Legal and Institutional Cooperation in the Greater Bay Area",
+      zh: "CCCL&GIG: International Conference on Legal and Institutional Cooperation in the Greater Bay Area",
+    },
+    summary: {
+      en: "CCCL and GIG co-organized a conference on legal and institutional cooperation in the Greater Bay Area, with Professor Wang introducing the conference and programme.",
+      zh: "CCCL与广州粤港澳大湾区研究院合办大湾区法律与制度合作国际会议，王江雨教授在开幕部分介绍会议内容和议程。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/CCCL/2024012728_CCCLnGIG_International_Conference_on_Legal_and_Institutional_Cooperation_in_the_Greater_Bay_Area.pdf",
+    topicIds: ["gba", "hong-kong"],
+  },
+  {
+    id: "histories-international-law-china-conference-2023",
+    date: "2023-11-09",
+    role: "organizer",
+    organizer: "CCCL, Wuhan University Law School, and Fudan University Law School",
+    title: {
+      en: "Histories of International Law in China: All Under Heaven?",
+      zh: "Histories of International Law in China all Under Heaven",
+    },
+    summary: {
+      en: "The international conference formed part of the research process behind Histories of International Law in China: All Under Heaven?, co-edited by Professor Wang, Ignacio de la Rasilla, and Cai Congyan.",
+      zh: "该国际学术会议围绕《中国国际法史：天下？》项目展开，构成该书研究与出版过程的重要环节，王江雨教授为该书共同主编之一。",
+    },
+    url: "https://www.cityu.edu.hk/slw/cccl/index.html",
+    topicIds: ["international-order"],
+  },
+  {
+    id: "east-asia-forum-2023",
+    date: "2023-10-23",
+    role: "participant",
+    organizer: "China Council for the Promotion of International Trade",
+    title: {
+      en: "Professor Jiangyu Wang invited by CCPIT to attend the 21st East Asia Forum",
+      zh: "Professor Jiangyu Wang has been invited by the China Council for the Promotion of International Trade to attend the 21st East Asia Forum",
+    },
+    summary: {
+      en: "CCCL recorded Professor Wang's invitation by the China Council for the Promotion of International Trade to attend the 21st East Asia Forum.",
+      zh: "CCCL记录王江雨教授受中国国际贸易促进委员会邀请出席第二十一届东亚论坛，体现其在区域经济合作与国际经济法议题中的持续参与。",
+    },
+    url: "https://www.cityu.edu.hk/slw/cccl/index.html",
+    topicIds: ["ielr", "international-order"],
+  },
+  {
+    id: "climate-change-post-pandemic-2022",
+    date: "2022-11-30",
+    role: "organizer",
+    organizer: "HKCML and CCCL, CityUHK",
+    title: {
+      en: "HKCML & CCCL Organized Online Conference on Addressing Climate Change in the Post-pandemic Era: A Global Perspective",
+      zh: "香港商務及海事法研究中心及中國法與比較法研究中心聯合協辦網上研討會「以全球視角應對後大流行時代的氣候變化」",
+    },
+    summary: {
+      en: "HKCML and CCCL co-organized an online conference on climate change after the pandemic, opened by Professor Wang and Professor Alexander Loke.",
+      zh: "香港商务及海事法研究中心与CCCL联合举办后疫情时代气候变化网上研讨会，王江雨教授与陆飞鸿教授共同致开幕辞。",
+    },
+    url: "https://www.cityu.edu.hk/slw/events-media/news/hkcml-cccl-organized-online-conference-addressing-climate-change-post-pandemic",
+    topicIds: ["ielr", "international-order"],
+  },
+  {
+    id: "china-judicial-reform-workshop-2022",
+    date: "2022-11-01",
+    role: "organizer",
+    organizer: "JERI and CCCL, CityUHK",
+    title: {
+      en: "Workshop on the Practice and Prospects of China's Judicial Reform",
+      zh: "司法教育與研究暨香港法律查明中心及中國法與比較法研究中心聯合主辦「中國司法改革的實踐與展望工作坊」",
+    },
+    summary: {
+      en: "JERI and CCCL organized a workshop on China's judicial reform, co-hosted by Professor Lin Feng and Professor Wang, with Professor Wang also chairing the second discussion session.",
+      zh: "司法教育与研究暨香港法律查明中心及CCCL联合主办“中国司法改革的实践与展望工作坊”，王江雨教授共同主持，并主持第二节“法院审级职能定位改革”讨论。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/web_story/20221101_CCCL_Workshop_cn.pdf",
+    topicIds: ["foreign-related-rule-of-law"],
+  },
+  {
+    id: "research-retreat-2021",
+    date: "2021-06-16",
+    role: "speaker",
+    organizer: "CityUHK School of Law",
+    title: {
+      en: "Research Retreat (June 2021)",
+      zh: "研究研討營（2021年6月）",
+    },
+    summary: {
+      en: "At CityUHK School of Law's research retreat, Professor Wang presented CCCL's recent events, workplan, and future plans as director of the Centre.",
+      zh: "城大法律学院研究研讨营中，王江雨教授以CCCL主任身份详细回顾中心举办的演讲活动，并介绍未来工作计划。",
+    },
+    url: "https://www.cityu.edu.hk/slw/events-media/news/research-retreat-june-2021",
+    topicIds: ["foreign-related-rule-of-law", "international-order"],
+  },
+];
+
 export const sources = [
   {
     label: { en: "Curriculum vitae supplied by Professor Wang", zh: "王江雨教授提供的履历" },
