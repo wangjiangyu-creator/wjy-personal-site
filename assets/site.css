@@ -501,6 +501,81 @@ h3 {
   color: #fff;
 }
 
+.cv-layout {
+  display: grid;
+  grid-template-columns: minmax(190px, 260px) minmax(0, 1fr);
+  align-items: start;
+  gap: 28px;
+}
+
+.cv-section-nav {
+  position: sticky;
+  top: 96px;
+  display: grid;
+  justify-content: stretch;
+  gap: 8px;
+}
+
+.cv-section-nav a {
+  display: block;
+  min-height: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 680;
+  text-decoration: none;
+}
+
+.cv-sections {
+  display: grid;
+  gap: 40px;
+}
+
+.cv-section {
+  scroll-margin-top: 96px;
+}
+
+.cv-item-list {
+  display: grid;
+  gap: 12px;
+}
+
+.cv-item {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.cv-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.cv-meta span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 8px;
+  background: var(--bg);
+}
+
+.cv-item ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.cv-item li + li {
+  margin-top: 6px;
+}
+
 [hidden] {
   display: none !important;
 }
@@ -537,8 +612,14 @@ h3 {
   .two-column,
   .split-sections,
   .detail-grid,
+  .cv-layout,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cv-section-nav {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .portrait-panel {
@@ -592,6 +673,17 @@ h3 {
     flex-wrap: nowrap;
     overflow-x: auto;
     padding-bottom: 4px;
+  }
+
+  .cv-section-nav {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .cv-section-nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
 
   .filter-button {

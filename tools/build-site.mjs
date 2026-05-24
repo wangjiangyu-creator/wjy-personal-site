@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import {
   academicActivities,
   academicHighlights,
+  cvSections,
   expertiseAreas,
   mediaRecords,
   profile,
@@ -19,12 +20,13 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const labels = {
   en: {
-    nav: ["Home", "Publications", "Commentaries", "Media", "Academic", "中文"],
+    nav: ["Home", "Publications", "Commentaries", "Media", "Academic", "C.V.", "中文"],
     home: "index.html",
     publications: "publications.html",
     commentaries: "commentaries.html",
     media: "media.html",
     academic: "academic.html",
+    cv: "cv.html",
     langHref: "zh/index.html",
     langName: "中文",
     bio: "Short Bio",
@@ -40,6 +42,8 @@ const labels = {
     mediaCommentaries: "Media",
     academicActivities: "Academic Activities",
     allAcademic: "View academic activities",
+    cvTitle: "C.V.",
+    cvSource: "Structured from the supplied curriculum vitae and profile source data.",
     academicFilters: "Academic Activity Filters",
     mediaExposure: "Interviews and Media Exposure",
     allMedia: "View media",
@@ -54,12 +58,13 @@ const labels = {
     noChinese: "Chinese title not supplied in the CV",
   },
   zh: {
-    nav: ["首页", "出版物", "时政评论", "媒体评论", "学术活动", "English"],
+    nav: ["首页", "出版物", "时政评论", "媒体评论", "学术活动", "简历", "English"],
     home: "index.html",
     publications: "publications.html",
     commentaries: "commentaries.html",
     media: "media.html",
     academic: "academic.html",
+    cv: "cv.html",
     langHref: "../index.html",
     langName: "English",
     bio: "简介",
@@ -75,6 +80,8 @@ const labels = {
     mediaCommentaries: "媒体评论",
     academicActivities: "学术活动",
     allAcademic: "查看学术活动",
+    cvTitle: "简历",
+    cvSource: "根据所提供简历及个人主页资料结构化整理。",
     academicFilters: "学术活动筛选",
     mediaExposure: "媒体报道与采访",
     allMedia: "查看媒体评论",
@@ -173,7 +180,8 @@ function nav(page, lang) {
     [l.nav[2], internalHref("commentaries.html", lang), page === "commentaries"],
     [l.nav[3], internalHref("media.html", lang), page === "media"],
     [l.nav[4], internalHref("academic.html", lang), page === "academic"],
-    [l.nav[5], counterpartHref(page === "home" ? "index.html" : `${page}.html`, lang), false],
+    [l.nav[5], internalHref("cv.html", lang), page === "cv"],
+    [l.nav[6], counterpartHref(page === "home" ? "index.html" : `${page}.html`, lang), false],
   ];
   return links
     .map(([text, href, active]) => `<a class="${active ? "active" : ""}" href="${href}">${esc(text)}</a>`)
@@ -350,6 +358,20 @@ function academicCard(item, lang) {
     <h3>${externalLink(item, title)}</h3>
     <p>${esc(summary)}</p>
     <div class="tags">${topics}</div>
+  </article>`;
+}
+
+function cvItem(item, lang) {
+  const details = (item.details || [])
+    .map((detail) => `<li>${esc(localized(detail, lang))}</li>`)
+    .join("");
+  return `<article class="cv-item">
+    <div class="cv-meta">
+      <span>${esc(item.period)}</span>
+      <span>${esc(localized(item.institution, lang))}</span>
+    </div>
+    <h3>${esc(localized(item.title, lang))}</h3>
+    ${details ? `<ul>${details}</ul>` : ""}
   </article>`;
 }
 
@@ -640,17 +662,58 @@ function academicPage(lang) {
   });
 }
 
+function cvPage(lang) {
+  const l = labels[lang];
+  const body = `
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">${esc(l.cvTitle)}</p>
+      <h1>${esc(l.cvTitle)}</h1>
+      <p class="lead">${esc(l.cvSource)}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap cv-layout">
+      <nav class="cv-section-nav" aria-label="${esc(l.cvTitle)}">
+        ${cvSections.map((section) => `<a href="#${esc(section.id)}">${esc(localized(section.title, lang))}</a>`).join("")}
+      </nav>
+      <div class="cv-sections">
+        ${cvSections
+          .map(
+            (section) => `<section class="cv-section" id="${esc(section.id)}">
+              <div class="section-heading compact">
+                <p class="section-kicker">${esc(l.cvTitle)}</p>
+                <h2>${esc(localized(section.title, lang))}</h2>
+              </div>
+              <div class="cv-item-list">${section.items.map((item) => cvItem(item, lang)).join("")}</div>
+            </section>`,
+          )
+          .join("")}
+      </div>
+    </div>
+  </section>`;
+  return layout({
+    lang,
+    page: "cv",
+    title: l.cvTitle,
+    description: "Curriculum vitae of Professor Wang Jiangyu",
+    body,
+  });
+}
+
 const outputs = new Map([
   ["index.html", homePage("en")],
   ["publications.html", publicationsPage("en")],
   ["commentaries.html", commentariesPage("en")],
   ["media.html", mediaPage("en")],
   ["academic.html", academicPage("en")],
+  ["cv.html", cvPage("en")],
   ["zh/index.html", homePage("zh")],
   ["zh/publications.html", publicationsPage("zh")],
   ["zh/commentaries.html", commentariesPage("zh")],
   ["zh/media.html", mediaPage("zh")],
   ["zh/academic.html", academicPage("zh")],
+  ["zh/cv.html", cvPage("zh")],
 ]);
 
 for (const [rel, html] of outputs) {

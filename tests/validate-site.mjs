@@ -11,11 +11,13 @@ const requiredFiles = [
   "commentaries.html",
   "media.html",
   "academic.html",
+  "cv.html",
   "zh/index.html",
   "zh/publications.html",
   "zh/commentaries.html",
   "zh/media.html",
   "zh/academic.html",
+  "zh/cv.html",
   "assets/site.css",
   "assets/site.js",
   "src/data/site-data.mjs",
@@ -116,6 +118,27 @@ assert.ok(
   "Academic activities should keep media-commentary items out of the Academic page",
 );
 
+assert.ok(Array.isArray(data.cvSections), "CV sections data must be exported");
+assert.deepEqual(
+  data.cvSections.map((section) => section.id),
+  [
+    "education",
+    "work-experience",
+    "editorial-membership",
+    "bar-qualifications",
+    "honours-awards",
+    "academic-appointments",
+    "professional-appointments",
+    "teaching",
+    "research-administration-services",
+  ],
+  "CV page should use the requested section order",
+);
+assert.ok(
+  data.cvSections.every((section) => section.title?.en && section.title?.zh && Array.isArray(section.items) && section.items.length > 0),
+  "Every CV section should be bilingual and contain entries",
+);
+
 assert.ok(data.publications.length >= 40, "Expected a substantial CV-derived publications list");
 assert.ok(data.publications.filter((item) => item.featured).length >= 5, "Homepage needs at least five featured publications");
 for (const category of ["Book", "Journal Article", "Book Chapter", "Shorter Commentary", "Working Paper", "Report / Policy Paper"]) {
@@ -209,6 +232,8 @@ const mediaPage = fs.readFileSync(path.join(root, "media.html"), "utf8");
 const zhMediaPage = fs.readFileSync(path.join(root, "zh/media.html"), "utf8");
 const academicPage = fs.readFileSync(path.join(root, "academic.html"), "utf8");
 const zhAcademicPage = fs.readFileSync(path.join(root, "zh/academic.html"), "utf8");
+const cvPage = fs.readFileSync(path.join(root, "cv.html"), "utf8");
+const zhCvPage = fs.readFileSync(path.join(root, "zh/cv.html"), "utf8");
 for (const expected of [
   "https://scholars.cityu.edu.hk/en/persons/jwang623",
   "https://scholar.google.com/citations?user=3xl2kbAAAAAJ",
@@ -224,6 +249,7 @@ assert.ok(index.includes("Academic Leadership and Professional Engagement"), "Ho
 assert.ok(index.includes("Research Expertise"), "Homepage should include expertise detail");
 assert.ok(index.includes('href="commentaries.html"') && index.includes("Commentaries"), "English navigation should include Commentaries");
 assert.ok(index.includes('href="academic.html"') && index.includes("Academic"), "English navigation should include Academic");
+assert.ok(index.includes('href="cv.html"') && index.includes("C.V."), "English navigation should include C.V.");
 assert.ok(index.includes('href="media.html"') && index.includes(">Media<"), "English navigation should label Media as Media");
 assert.ok(!index.includes(">Media Commentaries<"), "English navigation should not use Media Commentaries");
 assert.ok(zhIndex.includes("学术与专业职务"), "Chinese homepage should include leadership detail");
@@ -231,6 +257,7 @@ assert.ok(publicationsPage.includes('data-filter-criterion="topic"'), "Publicati
 assert.ok(publicationsPage.includes('data-filter-criterion="language"'), "Publications page should filter by language");
 assert.ok(zhIndex.includes('href="commentaries.html"') && zhIndex.includes("\u65f6\u653f\u8bc4\u8bba"), "Chinese navigation should include Commentaries");
 assert.ok(zhIndex.includes('href="academic.html"') && zhIndex.includes("\u5b66\u672f\u6d3b\u52a8"), "Chinese navigation should include Academic activities");
+assert.ok(zhIndex.includes('href="cv.html"') && zhIndex.includes("\u7b80\u5386"), "Chinese navigation should include CV");
 assert.ok(zhIndex.includes("\u5a92\u4f53\u8bc4\u8bba"), "Chinese navigation should rename Media to Media Commentaries");
 assert.ok(commentariesPage.includes('data-record-container="commentaries"'), "Commentaries page should have a dedicated record container");
 assert.ok(commentariesPage.includes('data-type="commentary"'), "Commentaries page should include authored commentaries");
@@ -294,6 +321,37 @@ assert.ok(zhAcademicPage.includes("陕西省贸促会举办“陕西贸促大讲
 assert.ok(zhAcademicPage.includes("社科学术活动预告｜地缘政治对国际经济秩序的挑战"), "Chinese Academic page should include the Sun Yat-sen lecture");
 assert.ok(zhAcademicPage.includes("会议回顾 | “《美国国家安全战略（2025）》与国际法律秩序——正在发生和可能（不）会发生”跨学科研讨会"), "Chinese Academic page should include the Fudan national-security seminar");
 assert.ok(zhAcademicPage.includes("IIA培训｜第二期APEC大讲堂结业，提升干部服务保障APEC会议能力本领"), "Chinese Academic page should include the APEC training activity");
+assert.ok(cvPage.includes("C.V."), "English CV page should use the C.V. heading");
+for (const expected of [
+  "Education",
+  "Work Experience",
+  "Editorial Membership",
+  "Bar Qualifications",
+  "Honours and Awards",
+  "Academic Appointments",
+  "Professional Appointments",
+  "Teaching",
+  "Research Administration and Related Services",
+  "University of Pennsylvania Law School",
+  "State Bar of New York",
+  "Young Researcher Award 2007-08",
+  "Asia Pacific Law Review",
+]) {
+  assert.ok(cvPage.includes(expected), `English CV page missing expected content: ${expected}`);
+}
+for (const expected of [
+  "\u7b80\u5386",
+  "\u6559\u80b2\u80cc\u666f",
+  "\u5de5\u4f5c\u7ecf\u5386",
+  "\u7f16\u8f91\u804c\u52a1",
+  "\u5f8b\u5e08\u8d44\u683c",
+  "\u8363\u8a89\u4e0e\u5956\u9879",
+  "\u6559\u5b66",
+  "\u7814\u7a76\u884c\u653f\u4e0e\u76f8\u5173\u670d\u52a1",
+  "\u5bbe\u5915\u6cd5\u5c3c\u4e9a\u5927\u5b66\u6cd5\u5b66\u9662",
+]) {
+  assert.ok(zhCvPage.includes(expected), `Chinese CV page missing expected content: ${expected}`);
+}
 
 const siteJs = fs.readFileSync(path.join(root, "assets/site.js"), "utf8");
 assert.ok(siteJs.includes("activeFilters"), "Filter script should combine active filters");

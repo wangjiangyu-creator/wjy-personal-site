@@ -226,6 +226,373 @@ export const researchTopics = [
   },
 ];
 
+export const cvSections = [
+  {
+    id: "education",
+    title: { en: "Education", zh: "教育背景" },
+    items: [
+      {
+        period: "2002-2003",
+        title: { en: "M.Juris in European and Comparative Law", zh: "欧洲与比较法法理学硕士" },
+        institution: { en: "University of Oxford, Faculty of Law and St Anne's College", zh: "牛津大学法学院及圣安妮学院" },
+        details: [
+          { en: "Focus of studies: international finance and trade; British and European commercial law.", zh: "研究重点：国际金融与贸易、英国及欧洲商法。" },
+        ],
+      },
+      {
+        period: "2000-2003",
+        title: { en: "S.J.D. (Doctor of Judicial Science)", zh: "法律科学博士（S.J.D.）" },
+        institution: { en: "University of Pennsylvania Law School", zh: "宾夕法尼亚大学法学院" },
+        details: [
+          { en: "Dissertation: U.S.-China Trade Relations: the Law, Politics and Values.", zh: "博士论文：中美贸易关系中的法律、政治与价值。" },
+          { en: "University of Pennsylvania Law School Research Scholarship.", zh: "获宾夕法尼亚大学法学院研究奖学金。" },
+        ],
+      },
+      {
+        period: "1999-2000",
+        title: { en: "LL.M.", zh: "法学硕士（LL.M.）" },
+        institution: { en: "University of Pennsylvania Law School", zh: "宾夕法尼亚大学法学院" },
+        details: [
+          { en: "Focus of studies: corporate and securities law, international trade and investment regulation.", zh: "研究重点：公司法与证券法、国际贸易与投资监管。" },
+        ],
+      },
+      {
+        period: "1994-1997",
+        title: { en: "LL.M.", zh: "法学硕士" },
+        institution: { en: "Peking University Law School", zh: "北京大学法学院" },
+        details: [
+          { en: "Graduated with honours and academic excellence awards for all three years of study.", zh: "三年学习期间均获荣誉及学业优秀奖励。" },
+          { en: "Dissertation: Formation of Sale Contracts and the Battle of Forms in International Trade.", zh: "硕士论文：国际贸易中买卖合同的成立及格式之战问题。" },
+        ],
+      },
+      {
+        period: "1990-1994",
+        title: { en: "LL.B.", zh: "法学学士" },
+        institution: { en: "China University of Political Science and Law", zh: "中国政法大学" },
+        details: [
+          { en: "Graduated with honours and in the top 5% of the class.", zh: "以荣誉成绩毕业，成绩位居班级前5%。" },
+          { en: "President, Student Society of International Economic Law; Vice President, University Students Union.", zh: "曾任国际经济法学生社团主席、校学生会副主席。" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "work-experience",
+    title: { en: "Work Experience", zh: "工作经历" },
+    items: [
+      {
+        period: "Current",
+        title: { en: "Professor of Law; Director, Centre for Chinese and Comparative Law", zh: "法学教授；中国法与比较法研究中心主任" },
+        institution: { en: "City University of Hong Kong School of Law", zh: "香港城市大学法律学院" },
+        details: [
+          { en: "Current academic home for teaching, research, editorial work, and leadership in Chinese and comparative law.", zh: "现任教学、研究、编辑及中国法与比较法学术领导工作的主要任职机构。" },
+        ],
+      },
+      {
+        period: "2006-2009",
+        title: { en: "Associate Professor", zh: "副教授" },
+        institution: { en: "The Chinese University of Hong Kong, Faculty of Law", zh: "香港中文大学法律学院" },
+        details: [
+          { en: "Taught international economic and trade law, Chinese company law, Chinese securities regulation, and the Chinese legal system.", zh: "讲授国际经济与贸易法、中国公司法、中国证券监管及中国法律制度等课程。" },
+        ],
+      },
+      {
+        period: "2003-2006",
+        title: { en: "Assistant Professor", zh: "助理教授" },
+        institution: { en: "National University of Singapore, Faculty of Law", zh: "新加坡国立大学法学院" },
+        details: [
+          { en: "Taught international economic and trade law, Chinese business law, and comparative law.", zh: "讲授国际经济与贸易法、中国商法及比较法。" },
+        ],
+      },
+      {
+        period: "2005-2009",
+        title: { en: "Adjunct Senior Lecturer", zh: "兼职高级讲师" },
+        institution: { en: "Griffith University School of Law", zh: "格里菲斯大学法学院" },
+        details: [
+          { en: "Taught the intensive course Chinese Law and Legal Traditions.", zh: "讲授“中国法律与法律传统”密集课程。" },
+        ],
+      },
+      {
+        period: "2002",
+        title: { en: "Of Counsel", zh: "顾问律师" },
+        institution: { en: "Hwang & Associates, P.C., Philadelphia", zh: "美国费城 Hwang & Associates, P.C." },
+        details: [
+          { en: "Advised on China-related business and developed a China practice plan for the firm.", zh: "就中国相关业务提供意见，并为律所制定中国业务发展计划。" },
+        ],
+      },
+      {
+        period: "1997-1999",
+        title: { en: "In-house Attorney", zh: "法律部律师" },
+        institution: { en: "Bank of China, Legal Department", zh: "中国银行法律部" },
+        details: [
+          { en: "Worked on commercial and syndicated loans, international trade finance, litigation, e-banking, and major commercial projects.", zh: "处理商业贷款、银团贷款、国际贸易融资、诉讼、电子银行及重大商业项目法律事务。" },
+          { en: "Served as an expert member of the Chinese delegation to UNCITRAL in 1999.", zh: "1999年作为专家成员参加中国代表团出席联合国国际贸易法委员会会议。" },
+        ],
+      },
+      {
+        period: "1994-1997",
+        title: { en: "Legal Assistant; Adjunct and Special Lecturer", zh: "法律助理；兼职及特聘讲师" },
+        institution: { en: "Beijing Zhong Lun Law Office; Chinese Women's College; Peking University Law School", zh: "北京中伦律师事务所、中国女子学院、北京大学法学院" },
+        details: [
+          { en: "Advised clients on investment, trade, and corporate matters while also teaching international trade law and international economic law.", zh: "从事投资、贸易及公司事务法律工作，并讲授国际贸易法、国际经济法等课程。" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "editorial-membership",
+    title: { en: "Editorial Membership", zh: "编辑职务" },
+    items: [
+      {
+        period: "Current",
+        title: { en: "Editor-in-Chief", zh: "主编" },
+        institution: { en: "Asia Pacific Law Review", zh: "《亚太法律评论》" },
+        details: [
+          { en: "SSCI-indexed journal focusing on law and legal development in the Asia-Pacific region.", zh: "SSCI收录期刊，聚焦亚太地区法律与法治发展。" },
+        ],
+      },
+      {
+        period: "Current",
+        title: { en: "Joint Editor-in-Chief", zh: "共同主编" },
+        institution: { en: "The Chinese Journal of Comparative Law", zh: "《中国比较法杂志》" },
+        details: [
+          { en: "Published by Oxford University Press.", zh: "由牛津大学出版社出版。" },
+        ],
+      },
+      {
+        period: "2007-2009",
+        title: { en: "International Economic Law Editor", zh: "国际经济法编辑" },
+        institution: { en: "Chinese Year Book of International Law", zh: "《中国国际法年刊》" },
+        details: [
+          { en: "Listed in the CV under editorial board services.", zh: "原始简历列于编辑委员会服务项下。" },
+        ],
+      },
+      {
+        period: "2003-2006",
+        title: { en: "Trade Law Editor", zh: "贸易法编辑" },
+        institution: { en: "Singapore Year Book of International Law", zh: "《新加坡国际法年刊》" },
+        details: [
+          { en: "Editorial responsibility in trade law during service at NUS.", zh: "在新加坡国立大学任职期间承担贸易法编辑工作。" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "bar-qualifications",
+    title: { en: "Bar Qualifications", zh: "律师资格" },
+    items: [
+      {
+        period: "2001",
+        title: { en: "Admitted to the State Bar of New York", zh: "获纽约州律师资格" },
+        institution: { en: "State Bar of New York", zh: "纽约州律师协会" },
+        details: [
+          { en: "Listed in the CV under professional qualifications.", zh: "原始简历列于专业资格项下。" },
+        ],
+      },
+      {
+        period: "1995",
+        title: { en: "Admitted to the National Bar of the People's Republic of China", zh: "获中华人民共和国律师资格" },
+        institution: { en: "National Bar of the People's Republic of China", zh: "中华人民共和国律师资格" },
+        details: [
+          { en: "Qualification obtained after legal training and early professional practice in China.", zh: "在中国接受法律教育并开始法律职业实践后取得该资格。" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "honours-awards",
+    title: { en: "Honours and Awards", zh: "荣誉与奖项" },
+    items: [
+      {
+        period: "2007-2008",
+        title: { en: "Young Researcher Award 2007-08", zh: "青年研究人员奖 2007-08" },
+        institution: { en: "The Chinese University of Hong Kong", zh: "香港中文大学" },
+        details: [
+          { en: "Awarded in recognition of research accomplishments in 2006-07.", zh: "表彰其在2006-07年度取得的研究成果。" },
+        ],
+      },
+      {
+        period: "1999-2003",
+        title: { en: "Law School Research Scholarship", zh: "法学院研究奖学金" },
+        institution: { en: "University of Pennsylvania Law School", zh: "宾夕法尼亚大学法学院" },
+        details: [
+          { en: "Received during LL.M. and S.J.D. studies.", zh: "在LL.M.及S.J.D.学习期间获得。" },
+        ],
+      },
+      {
+        period: "1994-1997",
+        title: { en: "Honours and academic excellence awards", zh: "荣誉及学业优秀奖励" },
+        institution: { en: "Peking University Law School", zh: "北京大学法学院" },
+        details: [
+          { en: "Received for all three years of LL.M. study.", zh: "法学硕士三年学习期间均获奖励。" },
+        ],
+      },
+      {
+        period: "1994",
+        title: { en: "LL.B. with honours; top 5% of the class", zh: "荣誉法学学士；成绩位居班级前5%" },
+        institution: { en: "China University of Political Science and Law", zh: "中国政法大学" },
+        details: [
+          { en: "Academic distinction at undergraduate graduation.", zh: "本科毕业时获得学业荣誉。" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "academic-appointments",
+    title: { en: "Academic Appointments", zh: "学术任职" },
+    items: [
+      {
+        period: "Current",
+        title: { en: "Professor of Law and Director, Centre for Chinese and Comparative Law", zh: "法学教授、中国法与比较法研究中心主任" },
+        institution: { en: "City University of Hong Kong School of Law", zh: "香港城市大学法律学院" },
+        details: [
+          { en: "Leads CCCL work on Chinese law, comparative law, legal development, and related international engagement.", zh: "主持中国法、比较法、法律发展及相关国际交流研究工作。" },
+        ],
+      },
+      {
+        period: "2006-2009",
+        title: { en: "Associate Professor", zh: "副教授" },
+        institution: { en: "The Chinese University of Hong Kong, Faculty of Law", zh: "香港中文大学法律学院" },
+        details: [
+          { en: "Research and teaching in Chinese law, international economic law, company law, securities regulation, and comparative law.", zh: "研究与教学涵盖中国法、国际经济法、公司法、证券监管及比较法。" },
+        ],
+      },
+      {
+        period: "2003-2006",
+        title: { en: "Assistant Professor", zh: "助理教授" },
+        institution: { en: "National University of Singapore, Faculty of Law", zh: "新加坡国立大学法学院" },
+        details: [
+          { en: "Developed and taught courses on Chinese and international economic law subjects.", zh: "开发并讲授中国法与国际经济法相关课程。" },
+        ],
+      },
+      {
+        period: "1996-2009",
+        title: { en: "Adjunct, visiting, and special teaching appointments", zh: "兼职、访问及特聘教学任职" },
+        institution: { en: "Griffith University, Santa Clara Law School, Chinese Women's College, and Peking University Law School", zh: "格里菲斯大学、圣克拉拉法学院、中国女子学院及北京大学法学院" },
+        details: [
+          { en: "Courses included Chinese law and legal traditions, international business transactions, international trade law, and international economic law.", zh: "课程包括中国法律与法律传统、国际商业交易、国际贸易法及国际经济法。" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "professional-appointments",
+    title: { en: "Professional Appointments", zh: "专业任职" },
+    items: [
+      {
+        period: "1997-1999",
+        title: { en: "In-house Attorney", zh: "法律部律师" },
+        institution: { en: "Bank of China, Legal Department", zh: "中国银行法律部" },
+        details: [
+          { en: "Counsel on banking, trade finance, commercial litigation, online payment, and e-banking matters.", zh: "处理银行、贸易融资、商业诉讼、在线支付及电子银行相关法律事务。" },
+        ],
+      },
+      {
+        period: "2002",
+        title: { en: "Of Counsel", zh: "顾问律师" },
+        institution: { en: "Hwang & Associates, P.C.", zh: "Hwang & Associates, P.C." },
+        details: [
+          { en: "Advised the U.S. firm on China-related business.", zh: "为美国律所提供中国业务相关法律意见。" },
+        ],
+      },
+      {
+        period: "1994-1995",
+        title: { en: "Legal Assistant", zh: "法律助理" },
+        institution: { en: "Beijing Zhong Lun Law Office", zh: "北京中伦律师事务所" },
+        details: [
+          { en: "Advised domestic and foreign clients on investment, international trade, and corporate issues.", zh: "就投资、国际贸易及公司事务为境内外客户提供法律服务。" },
+        ],
+      },
+      {
+        period: "2004-2009",
+        title: { en: "International organization and policy advisory roles", zh: "国际组织与政策咨询角色" },
+        institution: { en: "UNCITRAL, UNESCAP, ADB, and PRC Ministry of Commerce", zh: "联合国国际贸易法委员会、联合国亚太经社会、亚洲开发银行及中国商务部" },
+        details: [
+          { en: "Served as delegation expert, invited expert, trainer, consultant, and policy adviser on international trade and regional trade agreements.", zh: "围绕国际贸易和区域贸易协定担任代表团专家、特邀专家、培训专家、顾问及政策咨询专家。" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "teaching",
+    title: { en: "Teaching", zh: "教学" },
+    items: [
+      {
+        period: "CUHK",
+        title: { en: "Courses taught at The Chinese University of Hong Kong", zh: "香港中文大学任教课程" },
+        institution: { en: "Faculty of Law", zh: "法律学院" },
+        details: [
+          { en: "Chinese Company Law; Chinese Securities Regulation; World Trade Law; Chinese Foreign Trade and Investment Law; Legal System and Methods in China.", zh: "中国公司法、中国证券监管、世界贸易法、中国外贸与投资法、中国法律制度与方法。" },
+          { en: "Also taught legal research and thesis writing seminars for MPhil and PhD students.", zh: "并为MPhil及PhD学生讲授法律研究与论文写作研讨课程。" },
+        ],
+      },
+      {
+        period: "NUS",
+        title: { en: "Courses taught and developed at the National University of Singapore", zh: "新加坡国立大学任教及开发课程" },
+        institution: { en: "Faculty of Law", zh: "法学院" },
+        details: [
+          { en: "World Trade Law; Comparative Legal Traditions; Chinese Foreign Trade Law; Chinese Financial and Securities Law; Chinese Business Law; Securities Regulation; Chinese Civil Law; Chinese Corporate and Securities Law.", zh: "世界贸易法、比较法律传统、中国外贸法、中国金融与证券法、中国商法、证券监管、中国民法、中国公司与证券法。" },
+        ],
+      },
+      {
+        period: "Other institutions",
+        title: { en: "Additional teaching appointments", zh: "其他教学任职" },
+        institution: { en: "Griffith University, Santa Clara Law School, Chinese Women's College, and Peking University Law School", zh: "格里菲斯大学、圣克拉拉法学院、中国女子学院及北京大学法学院" },
+        details: [
+          { en: "Taught Chinese Law and Legal Traditions, International Business Transactions, International Trade Law, Contract Law, and International Economic Law.", zh: "讲授中国法律与法律传统、国际商业交易、国际贸易法、合同法及国际经济法。" },
+        ],
+      },
+      {
+        period: "Supervision",
+        title: { en: "Postgraduate supervision and examination", zh: "研究生指导与论文评审" },
+        institution: { en: "CUHK, NUS, and University of Hong Kong", zh: "香港中文大学、新加坡国立大学及香港大学" },
+        details: [
+          { en: "Supervised MPhil and PhD students in corporate governance, securities regulation, and related fields; served as internal and specialist external examiner.", zh: "指导公司治理、证券监管等领域的MPhil及PhD研究生，并担任内部评审及特聘外部评审。" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "research-administration-services",
+    title: { en: "Research Administration and Related Services", zh: "研究行政与相关服务" },
+    items: [
+      {
+        period: "2007-2009",
+        title: { en: "Programme Coordinator for MPhil/PhD Programmes", zh: "MPhil/PhD项目协调人" },
+        institution: { en: "The Chinese University of Hong Kong, Faculty of Law", zh: "香港中文大学法律学院" },
+        details: [
+          { en: "Coordinated research student admissions, research courses, and relationships between research students and supervisors.", zh: "协调研究生招生、研究课程及研究生与导师之间的沟通。" },
+        ],
+      },
+      {
+        period: "2006-2008",
+        title: { en: "Faculty and university committee service", zh: "学院及大学委员会服务" },
+        institution: { en: "The Chinese University of Hong Kong", zh: "香港中文大学" },
+        details: [
+          { en: "Served on the School Board, undergraduate and postgraduate committees, Law Panel of the Graduate Research Committee, Graduate School Disciplinary Committee, University Panel Against Sexual Harassment, and University General Education Committee.", zh: "曾服务于学院董事会、本科及研究生委员会、研究生委员会法律小组、研究生院纪律委员会、大学反性骚扰小组及大学通识教育委员会。" },
+        ],
+      },
+      {
+        period: "2006-2007",
+        title: { en: "Research Seminar Coordinator; Faculty Website and IT Coordinator", zh: "研究研讨会协调人；学院网站及信息技术协调人" },
+        institution: { en: "The Chinese University of Hong Kong, Faculty of Law", zh: "香港中文大学法律学院" },
+        details: [
+          { en: "Coordinated research seminars and led website redesign and maintenance initiatives.", zh: "协调研究研讨会，并负责学院网站重设与维护相关工作。" },
+        ],
+      },
+      {
+        period: "2004-2009",
+        title: { en: "Research and external review services", zh: "研究与外部评审服务" },
+        institution: { en: "Research councils, universities, journals, and international organizations", zh: "研究资助机构、大学、期刊及国际组织" },
+        details: [
+          { en: "Served as external reviewer for SSHRC Canada, Routledge-Cavendish, Hong Kong Research Grants Council, and multiple law journals.", zh: "曾为加拿大社会科学与人文研究理事会、Routledge-Cavendish、香港研究资助局及多种法律期刊担任外部评审。" },
+          { en: "Organized or co-organized international conferences on China, India, international economic order, and crime, law and justice in Chinese societies.", zh: "组织或共同组织中国、印度与国际经济秩序以及华人社会犯罪、法律与正义等国际会议。" },
+        ],
+      },
+    ],
+  },
+];
+
 export const academicActivities = [
   {
     id: "must-cross-border-legal-review-forum-2026",
