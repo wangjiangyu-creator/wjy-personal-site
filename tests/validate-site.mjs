@@ -42,11 +42,13 @@ assert.ok(data.expertiseAreas.length >= 7, "Homepage should include expertise ar
 assert.ok(data.academicHighlights.length >= 6, "Homepage should include academic and professional highlights");
 
 assert.ok(Array.isArray(data.academicActivities), "Academic activities data must be exported");
-assert.ok(data.academicActivities.length >= 15, "Academic page should include a substantial five-year activity set");
+assert.ok(data.academicActivities.length >= 24, "Academic page should include an expanded activity set");
 assert.ok(
   data.academicActivities.every((item) => item.id && item.date && item.title?.en && item.title?.zh && item.summary?.en && item.summary?.zh && item.url),
   "Academic activity records must be bilingual and source-linked",
 );
+const recentAcademicActivities = data.academicActivities.filter((item) => item.date >= "2024-05-24");
+assert.ok(recentAcademicActivities.length >= 17, "Academic page should prioritize a substantial past-two-years activity set");
 assert.ok(
   data.academicActivities.every((item) => item.date >= "2021-05-24"),
   "Academic activity records should focus on the past five years",
@@ -67,6 +69,15 @@ for (const id of [
   "climate-change-post-pandemic-2022",
   "china-judicial-reform-workshop-2022",
   "research-retreat-2021",
+  "gig-guangzhou-forum-2025",
+  "cologne-east-asian-studies-mou-2025",
+  "wiselaw-ai-teaching-assistant-2025",
+  "international-law-on-campus-2025",
+  "durham-gpi-mou-2025",
+  "zjgsu-national-security-seminar-2025",
+  "silk-road-expo-commercial-legal-services-2024",
+  "sensetime-global-ai-summit-2024",
+  "foreign-related-legal-construction-seminar-2024",
 ]) {
   assert.ok(data.academicActivities.some((item) => item.id === id), `Missing prioritized academic activity: ${id}`);
 }
@@ -226,6 +237,10 @@ assert.ok(
   zhAcademicPage.includes("\u540d\u6821\u6cd5\u5b66\u6559\u80b2\u5bb6\u4e91\u96c6 \u6fb3\u79d1\u5927\u6cd5\u5b66\u9662\u6210\u529f\u4e3e\u529e\u7b2c\u4e94\u5c4a\u300c\u5185\u5730\u4e0e\u6e2f\u6fb3\u6cd5\u5b66\u6559\u80b2\u9662\u957f\u8bba\u575b\u300d\u66a8\u300a\u8de8\u57df\u6cd5\u5f8b\u8bc4\u8bba\u300b\u521b\u520a\u53f7\u53d1\u5e03\u4eea\u5f0f"),
   "Chinese Academic page should preserve the 2026 forum report title",
 );
+assert.ok(academicPage.includes("International Law on Campus"), "English Academic page should include the 2025 international law campus activity");
+assert.ok(academicPage.includes("AI-Tutor Agent"), "English Academic page should include the WiseLaw AI teaching assistant launch");
+assert.ok(zhAcademicPage.includes("\u570b\u969b\u6cd5\u9032\u6821\u5712"), "Chinese Academic page should include the International Law on Campus report");
+assert.ok(zhAcademicPage.includes("\u738b\u6c5f\u96e8\u6559\u6388\u53d7\u9080\u53c3\u52a0\u7b2c\u516b\u5c46\u7d72\u535a\u6703\u671f\u9593\u4e3b\u8fa6\u7684\u570b\u969b\u5546\u4e8b\u6cd5\u5f8b\u670d\u52d9\u8207\u7d93\u8cbf\u5408\u4f5c\u5c0d\u63a5\u6703"), "Chinese Academic page should include the Silk Road Expo legal services report");
 
 const siteJs = fs.readFileSync(path.join(root, "assets/site.js"), "utf8");
 assert.ok(siteJs.includes("activeFilters"), "Filter script should combine active filters");

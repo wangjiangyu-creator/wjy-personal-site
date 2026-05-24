@@ -244,6 +244,102 @@ export const academicActivities = [
     topicIds: ["foreign-related-rule-of-law", "international-order"],
   },
   {
+    id: "gig-guangzhou-forum-2025",
+    date: "2025-12-28",
+    role: "speaker",
+    organizer: "Guangzhou Institute of the Greater Bay Area",
+    title: {
+      en: "Professor Wang Jiangyu spoke at the GIG 2025 Annual Guangzhou Forum",
+      zh: "王江雨教授應邀出席廣州論壇2025年年會「巔峰對話：2026年國內外政經形勢預測會」",
+    },
+    summary: {
+      en: "Professor Wang joined the Guangzhou Forum 2025 summit dialogue on domestic and international political-economic forecasts for 2026, discussing near- and medium-term trends with experts from policy, business, and academia.",
+      zh: "王江雨教授应邀出席广州论坛2025年年会，在“巅峰对话：2026年国内外政经形势预测会”中与各界专家共同研判未来一年及中长期全球与中国政经走势。",
+    },
+    url: "https://www.cityu.edu.hk/slw/events-media/news/professor-wang-jiangyu-spoke-at-the-gig-2025-annual-guangzhou-forum",
+    topicIds: ["gba", "international-order"],
+  },
+  {
+    id: "cologne-east-asian-studies-mou-2025",
+    date: "2025-11-10",
+    role: "participant",
+    organizer: "CCCL and Institute of East Asian Studies, University of Cologne",
+    title: {
+      en: "CCCL and the Institute of East Asian Studies, University of Cologne, sign Memorandum of Understanding",
+      zh: "CCCL and the Institute of East Asian Studies, University of Cologne, Sign Memorandum of Understanding",
+    },
+    summary: {
+      en: "Professor Wang attended the signing of an MoU between CCCL and the University of Cologne's Institute of East Asian Studies to support academic exchanges, joint research, and publication sharing.",
+      zh: "王江雨教授以CCCL主任身份出席中国法与比较法研究中心与科隆大学东亚研究所合作备忘录签署仪式，推动双方在学术交流、联合研究与出版物交流等方面合作。",
+    },
+    url: "https://www.cityu.edu.hk/slw/CCCL/News/2025/20251110_news.html",
+    topicIds: ["foreign-related-rule-of-law", "international-order"],
+  },
+  {
+    id: "wiselaw-ai-teaching-assistant-2025",
+    date: "2025-10-10",
+    role: "organizer",
+    organizer: "CCCL and WiseLaw Digital Technology",
+    title: {
+      en: "CCCL and WiseLaw launch Hong Kong's first AI teaching assistant",
+      zh: "CCCL and WiseLaw Launch Hong Kong’s First AI Teaching Assistant",
+    },
+    summary: {
+      en: "CCCL hosted Professor Lu Haitian's lecture on reshaping legal services and launched AI-Tutor Agent. Professor Wang was deeply involved in developing the legal AI teaching assistant with WiseLaw Digital Technology.",
+      zh: "CCCL举办“重塑法律服务范式”专题讲座并发布AI-Tutor Agent；报道指出，王江雨教授与智法数科合作深度参与该法律AI教学助手的开发。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/CCCL/N20251010_CCCL%20and%20WiseLaw%20Launch%20Hong%20Kong%E2%80%99s%20First%20AI%20Teaching%20Assistant.pdf",
+    topicIds: ["foreign-related-rule-of-law"],
+  },
+  {
+    id: "international-law-on-campus-2025",
+    date: "2025-09-29",
+    role: "host",
+    organizer: "CCCL, CityUHK School of Law",
+    title: {
+      en: "International Law on Campus",
+      zh: "國際法進校園",
+    },
+    summary: {
+      en: "Professor Wang moderated the International Law on Campus event featuring senior officials from the PRC Ministry of Foreign Affairs on climate change, law of the sea, Palestine, and plastic-pollution treaty negotiations.",
+      zh: "王江雨教授主持“国际法进校园”活动，邀请外交部条法司资深外交官围绕气候变化、海洋法、巴勒斯坦咨询意见和防治塑料污染等国际法前沿议题与师生交流。",
+    },
+    url: "https://www.cityu.edu.hk/slw/events-media/news/international-law-campus",
+    topicIds: ["international-order", "foreign-related-rule-of-law"],
+  },
+  {
+    id: "durham-gpi-mou-2025",
+    date: "2025-09-11",
+    role: "participant",
+    organizer: "CCCL and Durham University Global Policy Institute",
+    title: {
+      en: "CCCL signs MOU with Durham University's Global Policy Institute",
+      zh: "CCCL與英國杜倫大學全球政策研究所正式簽署合作意向書",
+    },
+    summary: {
+      en: "Professor Wang attended the signing ceremony for CCCL's cooperation agreement with Durham University's Global Policy Institute, covering scholar visits, research collaboration, and publication exchange.",
+      zh: "王江雨教授出席CCCL与英国杜伦大学全球政策研究所合作意向书签署仪式，双方拟在学者互访、学术研究合作及出版物交流等方面开展合作。",
+    },
+    url: "https://www.cityu.edu.hk/slw/CCCL/News/2025/20250911_news.html",
+    topicIds: ["foreign-related-rule-of-law", "international-order"],
+  },
+  {
+    id: "zjgsu-national-security-seminar-2025",
+    date: "2025-06-01",
+    role: "speaker",
+    organizer: "Zhejiang Gongshang University School of Law",
+    title: {
+      en: "Seminar on the international economic situation and China's national security",
+      zh: "“国际经济形势与我国国家安全”研讨会",
+    },
+    summary: {
+      en: "At Zhejiang Gongshang University School of Law's seminar, Professor Wang spoke on paradigm shifts and plural reconstruction of the international financial and monetary order under geopolitical challenges.",
+      zh: "在浙江工商大学法学院主办的研讨会上，王江雨教授以“地缘政治挑战下国际金融货币秩序的范式转移与多元化重构：一个国际法与国际关系的视角”为题发言。",
+    },
+    url: "https://law.zjgsu.edu.cn/View-3446.html",
+    topicIds: ["ielr", "international-order"],
+  },
+  {
     id: "nwupul-hk-legal-services-forum-2025",
     date: "2025-05-27",
     role: "speaker",
@@ -340,6 +436,22 @@ export const academicActivities = [
     topicIds: ["gba", "foreign-related-rule-of-law"],
   },
   {
+    id: "silk-road-expo-commercial-legal-services-2024",
+    date: "2024-12-04",
+    role: "speaker",
+    organizer: "Silk Road International Expo / Shaanxi CCPIT",
+    title: {
+      en: "Professor Wang Jiangyu invited to the international commercial legal services and economic-trade cooperation matchmaking conference during the 8th Silk Road Expo",
+      zh: "王江雨教授受邀參加第八屆絲博會期間主辦的國際商事法律服務與經貿合作對接會",
+    },
+    summary: {
+      en: "Professor Wang spoke on foreign sanctions and long-arm jurisdiction risks facing Chinese enterprises operating overseas, focusing on the legal nature of sanctions, jurisdictional reach, and response strategies.",
+      zh: "王江雨教授在第八届丝博会期间举行的国际商事法律服务与经贸合作对接会上，就中国企业海外经营面临的外国制裁及长臂管辖权风险发表意见。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/cccl/pnews/20241204%20%E7%8E%8B%E6%B1%9F%E9%9B%A8%E6%95%99%E6%8E%88%E5%8F%97%E9%82%80%E5%8F%83%E5%8A%A0%E7%AC%AC%E5%85%AB%E5%B1%86%E7%B5%B2%E5%8D%9A%E6%9C%83%E6%9C%9F%E9%96%93%E4%B8%BB%E8%BE%A6%E7%9A%84%E5%9C%8B%E9%9A%9B%E5%95%86%E4%BA%8B%E6%B3%95%E5%BE%8B%E6%9C%8D%E5%8B%99%E8%88%87%E7%B6%93%E8%B2%BF%E5%90%88%E4%BD%9C%E5%B0%8D%E6%8E%A5%E6%9C%83.pdf",
+    topicIds: ["sanctions", "ielr"],
+  },
+  {
     id: "guangzhou-forum-2024",
     date: "2024-12-07",
     role: "speaker",
@@ -354,6 +466,38 @@ export const academicActivities = [
     },
     url: "https://www.cityu.edu.hk/slw/lib/doc/cccl/pnews/20241207_1208%20%E7%8E%8B%E6%B1%9F%E9%9B%A8%E6%95%99%E6%8E%88%E5%8F%97%E9%82%80%E5%8F%83%E5%8A%A0%E5%BB%A3%E5%B7%9E%E7%B2%B5%E6%B8%AF%E6%BE%B3%E5%A4%A7%E7%81%A3%E5%8D%80%E7%A0%94%E7%A9%B6%E9%99%A2%E5%BB%A3%E5%B7%9E%E8%AB%96%E5%A3%872024%E5%B9%B4%E5%B9%B4%E6%9C%83.pdf",
     topicIds: ["gba", "hong-kong"],
+  },
+  {
+    id: "sensetime-global-ai-summit-2024",
+    date: "2024-10-17",
+    role: "participant",
+    organizer: "SenseTime",
+    title: {
+      en: "Professor Wang Jiangyu invited to SenseTime 10th Anniversary Global AI Summit 2024",
+      zh: "Professor Wang Jiangyu Invited to SenseTime 10th Anniversary Global AI Summit 2024",
+    },
+    summary: {
+      en: "CCCL recorded Professor Wang's invitation to SenseTime's tenth-anniversary Global AI Summit, a technology-policy event relevant to AI governance, legal education, and emerging regulatory issues.",
+      zh: "CCCL记录王江雨教授受邀参加商汤科技十周年全球AI峰会；该活动与人工智能治理、法律教育及新兴科技监管议题相关。",
+    },
+    url: "https://www.cityu.edu.hk/slw/cccl/index.html",
+    topicIds: ["foreign-related-rule-of-law"],
+  },
+  {
+    id: "foreign-related-legal-construction-seminar-2024",
+    date: "2024-07-24",
+    role: "speaker",
+    organizer: "CCCL / Foreign-related legal construction seminar",
+    title: {
+      en: "Director, Professor Wang Jiangyu, was invited to present at the 5th Seminar on Foreign-Related Legal Construction",
+      zh: "Director, Professor Wang Jiangyu, was invited to present at the 5th Seminar on Foreign-Related Legal Construction",
+    },
+    summary: {
+      en: "Professor Wang was invited to present at the fifth seminar on foreign-related legal construction, continuing his work on China's foreign-related rule-of-law project.",
+      zh: "CCCL记录王江雨教授受邀在第五届涉外法治建设研讨会上发言，延续其关于中国涉外法治建设的方法论和制度建构研究。",
+    },
+    url: "https://www.cityu.edu.hk/slw/cccl/index.html",
+    topicIds: ["foreign-related-rule-of-law"],
   },
   {
     id: "aclf-annual-conference-2024",
