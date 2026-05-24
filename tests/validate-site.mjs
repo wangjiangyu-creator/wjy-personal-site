@@ -1,0 +1,180 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+
+const requiredFiles = [
+  "index.html",
+  "publications.html",
+  "commentaries.html",
+  "media.html",
+  "zh/index.html",
+  "zh/publications.html",
+  "zh/commentaries.html",
+  "zh/media.html",
+  "assets/site.css",
+  "assets/site.js",
+  "src/data/site-data.mjs",
+];
+
+for (const rel of requiredFiles) {
+  assert.ok(fs.existsSync(path.join(root, rel)), `Missing required file: ${rel}`);
+}
+
+const data = await import(pathToFileURL(path.join(root, "src/data/site-data.mjs")).href);
+
+assert.equal(data.researchTopics.length, 7, "Expected exactly seven research topics");
+assert.ok(data.researchTopics.every((topic) => topic.title?.en && topic.title?.zh), "Research topics must be bilingual");
+assert.ok(data.researchTopics.every((topic) => topic.href?.startsWith("https://")), "Research topic URLs must be HTTPS");
+assert.ok(
+  data.researchTopics.some((topic) => topic.id === "gba" && topic.status === "verify"),
+  "GBA topic must be flagged for final verification",
+);
+
+const profileNames = data.profileLinks.map((link) => link.label.en);
+assert.deepEqual(profileNames, ["CityUHK Profile", "CityUHK Scholar", "Google Scholar", "SSRN"], "Only verified profile links should be included");
+assert.ok(data.profileMetrics.length >= 4, "Homepage should include profile metrics");
+assert.ok(data.expertiseAreas.length >= 7, "Homepage should include expertise areas");
+assert.ok(data.academicHighlights.length >= 6, "Homepage should include academic and professional highlights");
+
+assert.ok(data.publications.length >= 40, "Expected a substantial CV-derived publications list");
+assert.ok(data.publications.filter((item) => item.featured).length >= 5, "Homepage needs at least five featured publications");
+for (const category of ["Book", "Journal Article", "Book Chapter", "Shorter Commentary", "Working Paper", "Report / Policy Paper"]) {
+  assert.ok(data.publications.some((item) => item.category === category), `Missing publication category: ${category}`);
+}
+for (const item of data.publications) {
+  assert.ok(item.id && item.title?.en && item.year && item.category && item.venue, `Publication record is incomplete: ${item.id}`);
+  assert.ok(Array.isArray(item.topicIds), `Publication topicIds must be an array: ${item.id}`);
+}
+
+assert.ok(data.mediaRecords.length >= 158, "Expected expanded CV-derived media/commentary records");
+assert.ok(data.mediaRecords.filter((item) => item.language === "Chinese").length >= 123, "Expected Chinese-language media to be prioritized");
+assert.ok(
+  data.mediaRecords.filter((item) => item.type === "exposure" && item.date >= "2021-01-01").length >= 46,
+  "Expected a substantial set of recent media interviews and quoted coverage",
+);
+assert.ok(
+  data.mediaRecords.filter((item) => item.language === "Chinese" && item.summary?.en && item.summary?.zh).length >= 30,
+  "Chinese media records should include English and Chinese short summaries",
+);
+assert.ok(data.mediaRecords.some((item) => item.type === "commentary"), "Missing media commentaries");
+assert.ok(data.mediaRecords.some((item) => item.type === "exposure"), "Missing media exposure records");
+assert.ok(data.mediaRecords.filter((item) => item.type === "commentary").length >= 56, "Commentaries page needs expanded authored and text-interview records");
+assert.ok(data.mediaRecords.filter((item) => item.type === "commentary" && item.outlet === "Ming Pao").length >= 11, "Expected multiple Ming Pao commentaries");
+assert.ok(data.mediaRecords.filter((item) => item.type === "exposure").length >= 102, "Media commentaries page should retain interview and coverage records");
+assert.ok(data.mediaRecords.filter((item) => item.type === "exposure" && item.outlet === "Lianhe Zaobao").length >= 45, "Expected expanded Lianhe Zaobao media exposure records");
+for (const id of [
+  "armored-vehicle-detention",
+  "south-china-sea-politics-law-interests",
+  "dw-thaad-interlude",
+  "initium-g20-interview",
+  "phoenix-mainland-qa-international-order-2026",
+  "cgtn-point-macao-25-2024",
+  "zaobao-taiwan-strait-us-china-2022",
+  "ifeng-talk-lee-hsien-loong-2022",
+  "zaobao-asian-forward-summit-taiwan-2023",
+  "zaobao-dongtanxilun-xi-russia-2023",
+  "zaobao-russia-ukraine-global-order-2022",
+  "zaobao-trump-second-term-us-china-2024",
+  "zaobao-iran-us-strike-international-law-2025",
+  "zaobao-taiwan-legal-war-jurisdiction-2025",
+  "zaobao-china-iran-us-middle-east-balance-2026",
+  "zaobao-venezuela-taiwan-us-force-2026",
+  "zaobao-prince-group-cambodia-extradition-2026",
+  "zaobao-shangri-la-us-philippines-treaty-2024",
+  "zaobao-shangri-la-us-china-rhetorical-war-2024",
+  "zaobao-lee-hsien-loong-diplomacy-2024",
+  "zaobao-taiwan-election-war-game-2024",
+  "mingpao-new-era-gentry-2025",
+  "mingpao-trump-tariff-policy-2025",
+  "mingpao-us-china-trade-talks-order-2025",
+  "mingpao-ma-ying-jeou-values-2025",
+  "mingpao-talking-us-china-relations-2024",
+  "mingpao-russia-ukraine-rule-of-law-2022",
+  "mingpao-foreign-judges-commercial-centre-2022",
+  "mingpao-us-gun-violence-2022",
+  "mingpao-singapore-approach-homosexuality-2022",
+  "mingpao-hk-international-financial-centre-2022",
+  "mingpao-power-authority-2022",
+  "ipp-reciprocal-tariffs-2025",
+  "ipp-us-china-competition-strength-through-struggle-2026",
+  "ipp-us-national-security-strategy-2026",
+  "phoenix-international-thinktank-singapore-diplomacy-2017",
+  "phoenix-century-lecture-south-china-sea-arbitration-2016",
+  "scmp-foreign-related-rule-law-talent-2024",
+  "scmp-domestic-law-abroad-2025",
+  "hk01-legal-education-reform-2021",
+]) {
+  assert.ok(data.mediaRecords.some((item) => item.id === id), `Missing newly prioritized Chinese media record: ${id}`);
+}
+assert.ok(data.mediaRecords.filter((item) => item.featured).length >= 6, "Homepage needs featured media records");
+for (const item of data.mediaRecords) {
+  assert.ok(item.id && item.title?.en && item.date && item.outlet && item.language && item.type, `Media record is incomplete: ${item.id}`);
+  assert.ok(Array.isArray(item.topicIds), `Media topicIds must be an array: ${item.id}`);
+}
+
+const htmlFiles = requiredFiles.filter((rel) => rel.endsWith(".html"));
+for (const rel of htmlFiles) {
+  const html = fs.readFileSync(path.join(root, rel), "utf8");
+  assert.ok(html.includes("Professor Wang Jiangyu and Research") || html.includes("王江雨教授及其研究"), `${rel} missing site title`);
+  assert.ok(!html.includes('href="/') && !html.includes('src="/'), `${rel} contains root-relative paths`);
+  assert.ok(!html.includes("ResearchGate"), `${rel} should not include unverified ResearchGate link`);
+}
+
+const index = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const zhIndex = fs.readFileSync(path.join(root, "zh/index.html"), "utf8");
+const publicationsPage = fs.readFileSync(path.join(root, "publications.html"), "utf8");
+const commentariesPage = fs.readFileSync(path.join(root, "commentaries.html"), "utf8");
+const zhCommentariesPage = fs.readFileSync(path.join(root, "zh/commentaries.html"), "utf8");
+const mediaPage = fs.readFileSync(path.join(root, "media.html"), "utf8");
+const zhMediaPage = fs.readFileSync(path.join(root, "zh/media.html"), "utf8");
+for (const expected of [
+  "https://scholars.cityu.edu.hk/en/persons/jwang623",
+  "https://scholar.google.com/citations?user=3xl2kbAAAAAJ",
+  "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=372334",
+  "https://int.eastlaw.wang",
+  "https://gba.eastlaw.wang",
+]) {
+  assert.ok(index.includes(expected), `Homepage missing expected link: ${expected}`);
+}
+
+assert.ok(zhIndex.includes("王江雨教授及其研究"), "Chinese homepage title should be 王江雨教授及其研究");
+assert.ok(index.includes("Academic Leadership and Professional Engagement"), "Homepage should include leadership detail");
+assert.ok(index.includes("Research Expertise"), "Homepage should include expertise detail");
+assert.ok(index.includes('href="commentaries.html"') && index.includes("Commentaries"), "English navigation should include Commentaries");
+assert.ok(index.includes("Media Commentaries"), "English navigation should rename Media to Media Commentaries");
+assert.ok(zhIndex.includes("学术与专业职务"), "Chinese homepage should include leadership detail");
+assert.ok(publicationsPage.includes('data-filter-criterion="topic"'), "Publications page should filter by topic");
+assert.ok(publicationsPage.includes('data-filter-criterion="language"'), "Publications page should filter by language");
+assert.ok(zhIndex.includes('href="commentaries.html"') && zhIndex.includes("\u65f6\u653f\u8bc4\u8bba"), "Chinese navigation should include Commentaries");
+assert.ok(zhIndex.includes("\u5a92\u4f53\u8bc4\u8bba"), "Chinese navigation should rename Media to Media Commentaries");
+assert.ok(commentariesPage.includes('data-record-container="commentaries"'), "Commentaries page should have a dedicated record container");
+assert.ok(commentariesPage.includes('data-type="commentary"'), "Commentaries page should include authored commentaries");
+assert.ok(!commentariesPage.includes('data-type="exposure"'), "Commentaries page should not include media exposure records");
+assert.ok(commentariesPage.includes("Huawei's Meng Wanzhou: Can Canada rectify a bad start?"), "Authored commentaries should move to the Commentaries page");
+assert.ok(commentariesPage.includes("Chinese originals use concise English translations"), "English Commentaries page should explain translated Chinese commentaries");
+assert.ok(zhCommentariesPage.includes("\u738b\u6c5f\u96e8\uff1a\u7279\u6717\u666e\u7b2c\u4e8c\u4efb\u671f\u7684\u4e2d\u7f8e\u5173\u7cfb"), "Chinese Commentaries page should keep original Chinese commentary titles");
+assert.ok(zhCommentariesPage.includes("\u660e\u62a5") || zhCommentariesPage.includes("Ming Pao"), "Chinese Commentaries page should include Ming Pao additions");
+assert.ok(zhCommentariesPage.includes("\u7279\u6717\u666e\u7684\u95dc\u7a05\u653f\u7b56"), "Chinese Commentaries page should include the added Ming Pao tariff commentary");
+assert.ok(zhCommentariesPage.includes("\u4e2d\u7f8e\u8cbf\u6613\u8ac7\u5224\u7684\u570b\u969b\u683c\u5c40\u610f\u7fa9"), "Chinese Commentaries page should include the added Ming Pao trade-talks commentary");
+assert.ok(zhCommentariesPage.includes("\u99ac\u82f1\u4e5d\u7684\u50f9\u503c\u89c0\u8207\u50f9\u503c"), "Chinese Commentaries page should include the added Ming Pao Ma Ying-jeou commentary");
+assert.ok(zhCommentariesPage.includes("\u570b\u969b\u5546\u696d\u4e2d\u5fc3\u8207\u5916\u7c4d\u6cd5\u5b98"), "Chinese Commentaries page should include the added Ming Pao foreign-judges commentary");
+assert.ok(zhCommentariesPage.includes("IPP\u4e13\u8bbf"), "Chinese Commentaries page should include IPP text interviews");
+assert.ok(zhCommentariesPage.includes("\u51e4\u51f0"), "Chinese Commentaries page should include Phoenix text commentary/interview records");
+assert.ok(mediaPage.includes('data-filter-criterion="year"'), "Media page should filter by year");
+assert.ok(mediaPage.includes('data-filter-criterion="outlet"'), "Media page should filter by outlet");
+assert.ok(mediaPage.includes("interviews, quoted analysis, broadcast appearances, and news coverage"), "English media page should explain the media-commentary scope");
+assert.ok(!mediaPage.includes('data-type="commentary"'), "Media page should not include authored commentaries after migration");
+assert.ok(mediaPage.includes('data-type="exposure"'), "Media page should keep media exposure records");
+assert.ok(!mediaPage.includes("Huawei's Meng Wanzhou: Can Canada rectify a bad start?"), "Authored commentaries should be absent from Media Commentaries");
+assert.ok(zhMediaPage.includes("\u5a92\u4f53\u8bc4\u8bba"), "Chinese media page should use the renamed heading");
+
+const siteJs = fs.readFileSync(path.join(root, "assets/site.js"), "utf8");
+assert.ok(siteJs.includes("activeFilters"), "Filter script should combine active filters");
+
+const siteCss = fs.readFileSync(path.join(root, "assets/site.css"), "utf8");
+assert.ok(siteCss.includes("overflow-x: auto"), "Mobile filter rows should remain compact with horizontal scrolling");
+
+console.log("Website validation passed");
