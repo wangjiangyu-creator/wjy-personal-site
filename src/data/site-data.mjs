@@ -8,7 +8,7 @@ export const site = {
     zh: "国际法、中国与国际秩序、比较公司法、香港、制裁与反制裁、涉外法治等研究。",
   },
   portrait: {
-    src: "https://scholars.cityu.edu.hk/files-asset/42718361/WJY_Passport_photo_small.jpeg?w=640&f=jpg",
+    src: "assets/wang-jiangyu-guangzhou-forum-2025.jpg",
     alt: {
       en: "Professor Wang Jiangyu",
       zh: "王江雨教授",

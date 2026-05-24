@@ -145,6 +145,11 @@ function rootPrefix(lang) {
   return lang === "zh" ? "../" : "";
 }
 
+function resourceHref(src, lang) {
+  if (/^(?:https?:|data:|\/)/.test(src)) return src;
+  return `${rootPrefix(lang)}${src}`;
+}
+
 function internalHref(page, lang) {
   return lang === "zh" ? page : page;
 }
@@ -412,7 +417,7 @@ function homePage(lang) {
         <p class="verified-note">${esc(l.verified)}</p>
       </div>
       <aside class="portrait-panel" aria-label="${esc(localized(site.portrait.alt, lang))}">
-        <img src="${esc(site.portrait.src)}" alt="${esc(localized(site.portrait.alt, lang))}" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+        <img src="${esc(resourceHref(site.portrait.src, lang))}" alt="${esc(localized(site.portrait.alt, lang))}" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
         <div class="portrait-fallback" aria-hidden="true">WJY</div>
       </aside>
     </div>
