@@ -260,6 +260,22 @@ export const academicActivities = [
     topicIds: ["gba", "international-order"],
   },
   {
+    id: "hku-alsa-young-scholars-conference-2025",
+    date: "2025-12-05",
+    role: "speaker",
+    organizer: "HKU Faculty of Law and Asian Law Schools Association",
+    title: {
+      en: "HKU-ALSA Young Scholars Conference Successfully Held at the University of Hong Kong",
+      zh: "HKU-ALSA Young Scholars Conference Successfully Held at the University of Hong Kong",
+    },
+    summary: {
+      en: "At the HKU-ALSA Young Scholars Conference, Professor Wang acted as a discussant in the AI and Law session and gave guidance from an editor's perspective on articulating original scholarly contributions.",
+      zh: "香港大学法学院与亚洲法学院协会青年学者会议在香港大学举行，王江雨教授担任“AI and Law”单元评议人，并从期刊主编视角为青年学者阐释如何清晰呈现论文的原创学术贡献。",
+    },
+    url: "https://researchblog.law.hku.hk/2025/12/hkualsa-young-scholars-conference.html?m=1",
+    topicIds: ["foreign-related-rule-of-law", "international-order"],
+  },
+  {
     id: "cologne-east-asian-studies-mou-2025",
     date: "2025-11-10",
     role: "participant",
@@ -274,6 +290,22 @@ export const academicActivities = [
     },
     url: "https://www.cityu.edu.hk/slw/CCCL/News/2025/20251110_news.html",
     topicIds: ["foreign-related-rule-of-law", "international-order"],
+  },
+  {
+    id: "he-xin-hku-book-talk-2025",
+    date: "2025-10-30",
+    role: "host",
+    organizer: "CCCL, CityUHK School of Law",
+    title: {
+      en: "Event Recap: Book Talk by Professor He Xin: The Judicial System of China",
+      zh: "CCCL 学术沙龙活动回顾：贺欣教授《The Judicial System of China》新书分享会",
+    },
+    summary: {
+      en: "CCCL hosted a closed-door academic salon with Professor He Xin of the University of Hong Kong on The Judicial System of China. Professor Wang chaired the event and framed the discussion for JSDCJ participants and visiting candidates.",
+      zh: "CCCL举办香港大学贺欣教授《The Judicial System of China》新书分享学术沙龙，王江雨教授担任主持，与JSDCJ学员及来港访问候选人围绕中国司法制度研究展开讨论。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/CCCL/N20251030_Book%E2%80%AFTalk%E2%80%AFby%E2%80%AFProfessor%E2%80%AFHe%E2%80%AFXin.pdf",
+    topicIds: ["foreign-related-rule-of-law"],
   },
   {
     id: "wiselaw-ai-teaching-assistant-2025",
@@ -516,6 +548,38 @@ export const academicActivities = [
     topicIds: ["company-law"],
   },
   {
+    id: "ipp-young-scholars-forum-2024",
+    date: "2024-03-23",
+    role: "participant",
+    organizer: "Institute of Public Policy, South China University of Technology",
+    title: {
+      en: "Third National Outstanding Young Scholars Forum and IPP 10th Anniversary Celebration",
+      zh: "第三届全国优秀青年学者论坛暨公共政策研究院成立十周年庆典",
+    },
+    summary: {
+      en: "At the IPP forum co-hosted by South China University of Technology's Institute of Public Policy and Exploration and Free Views, Professor Wang served as a session reviewer and offered comments on cultural identity, social foundations, modernization, and related public-policy debates.",
+      zh: "论坛由华南理工大学公共政策研究院（IPP）与《探索与争鸣》编辑部主办，王江雨教授在相关单元作综合评议，围绕文化认同、社会基础与现代化等议题进行学术回应。",
+    },
+    url: "https://mp.weixin.qq.com/s?__biz=MzAwMjI3ODY4NA==&mid=2654073181&idx=1&sn=066263ab3a6e4ccf53f027b139d2403d",
+    topicIds: ["foreign-related-rule-of-law", "international-order"],
+  },
+  {
+    id: "eighth-gba-legal-symposium-2024",
+    date: "2024-03-07",
+    role: "speaker",
+    organizer: "China Law Society, CityUHK School of Law, Guangdong Law Society, and University of Macau Faculty of Law",
+    title: {
+      en: "The 8th Law Forum of Hong Kong, Macau and Guangdong",
+      zh: "第八届粤港澳法学研讨会在香港城市大学成功举办",
+    },
+    summary: {
+      en: "The symposium brought together scholars and legal professionals from Hong Kong, Macao and Guangdong, including Sun Yat-sen University scholars. Professor Wang chaired the opening ceremony and spoke in the session on GBA rule linkage and legal-cooperation pathways.",
+      zh: "研讨会汇聚香港、澳门、广东法学界与法律实务界代表，并有中山大学法学院及粤港澳发展研究院学者参与。王江雨教授主持开幕式，并在“粤港澳大湾区法治合作路径研究”专题中发言。",
+    },
+    url: "https://www.chinalaw.org.cn/index.php/portal/article/index/id/33386.html",
+    topicIds: ["gba", "foreign-related-rule-of-law", "hong-kong"],
+  },
+  {
     id: "gba-legal-institutional-cooperation-2024",
     date: "2024-01-27",
     role: "organizer",
@@ -562,6 +626,22 @@ export const academicActivities = [
     },
     url: "https://www.cityu.edu.hk/slw/cccl/index.html",
     topicIds: ["ielr", "international-order"],
+  },
+  {
+    id: "histories-international-law-lecture-series-2022",
+    date: "2022-12-16",
+    role: "organizer",
+    organizer: "CCCL, Wuhan University Law School, and Fudan University Law School",
+    title: {
+      en: "Lecture Series: China and the Turn to the National Histories of International Law",
+      zh: "Lecture Series: China and the Turn to the National Histories of International Law",
+    },
+    summary: {
+      en: "In light of the forthcoming Histories of International Law in China: All Under Heaven? volume, CCCL, Wuhan University Law School, and Fudan University Law School organized a public lecture series. Professor Wang delivered the welcome speech and introduced the project background.",
+      zh: "围绕《Histories of International Law in China: All Under Heaven?》书稿项目，CCCL、武汉大学法学院与复旦大学法学院共同组织公开讲座系列；王江雨教授致欢迎辞，并介绍该国际法国别史研究项目的学术背景。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/web_story/20221216_China_and_the_turn_to_the_national_histories_of_int.pdf",
+    topicIds: ["international-order"],
   },
   {
     id: "climate-change-post-pandemic-2022",

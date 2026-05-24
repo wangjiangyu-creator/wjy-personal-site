@@ -42,13 +42,13 @@ assert.ok(data.expertiseAreas.length >= 7, "Homepage should include expertise ar
 assert.ok(data.academicHighlights.length >= 6, "Homepage should include academic and professional highlights");
 
 assert.ok(Array.isArray(data.academicActivities), "Academic activities data must be exported");
-assert.ok(data.academicActivities.length >= 24, "Academic page should include an expanded activity set");
+assert.ok(data.academicActivities.length >= 29, "Academic page should include an expanded activity set");
 assert.ok(
   data.academicActivities.every((item) => item.id && item.date && item.title?.en && item.title?.zh && item.summary?.en && item.summary?.zh && item.url),
   "Academic activity records must be bilingual and source-linked",
 );
 const recentAcademicActivities = data.academicActivities.filter((item) => item.date >= "2024-05-24");
-assert.ok(recentAcademicActivities.length >= 17, "Academic page should prioritize a substantial past-two-years activity set");
+assert.ok(recentAcademicActivities.length >= 19, "Academic page should prioritize a substantial past-two-years activity set");
 assert.ok(
   data.academicActivities.every((item) => item.date >= "2021-05-24"),
   "Academic activity records should focus on the past five years",
@@ -78,6 +78,11 @@ for (const id of [
   "silk-road-expo-commercial-legal-services-2024",
   "sensetime-global-ai-summit-2024",
   "foreign-related-legal-construction-seminar-2024",
+  "hku-alsa-young-scholars-conference-2025",
+  "he-xin-hku-book-talk-2025",
+  "eighth-gba-legal-symposium-2024",
+  "ipp-young-scholars-forum-2024",
+  "histories-international-law-lecture-series-2022",
 ]) {
   assert.ok(data.academicActivities.some((item) => item.id === id), `Missing prioritized academic activity: ${id}`);
 }
@@ -239,8 +244,13 @@ assert.ok(
 );
 assert.ok(academicPage.includes("International Law on Campus"), "English Academic page should include the 2025 international law campus activity");
 assert.ok(academicPage.includes("AI-Tutor Agent"), "English Academic page should include the WiseLaw AI teaching assistant launch");
+assert.ok(academicPage.includes("HKU-ALSA Young Scholars Conference"), "English Academic page should include the HKU-ALSA conference");
+assert.ok(academicPage.includes("The Judicial System of China"), "English Academic page should include the HKU book talk");
+assert.ok(academicPage.includes("Fudan University Law School"), "English Academic page should include Fudan-linked activities");
 assert.ok(zhAcademicPage.includes("\u570b\u969b\u6cd5\u9032\u6821\u5712"), "Chinese Academic page should include the International Law on Campus report");
 assert.ok(zhAcademicPage.includes("\u738b\u6c5f\u96e8\u6559\u6388\u53d7\u9080\u53c3\u52a0\u7b2c\u516b\u5c46\u7d72\u535a\u6703\u671f\u9593\u4e3b\u8fa6\u7684\u570b\u969b\u5546\u4e8b\u6cd5\u5f8b\u670d\u52d9\u8207\u7d93\u8cbf\u5408\u4f5c\u5c0d\u63a5\u6703"), "Chinese Academic page should include the Silk Road Expo legal services report");
+assert.ok(zhAcademicPage.includes("\u7b2c\u516b\u5c4a\u7ca4\u6e2f\u6fb3\u6cd5\u5b66\u7814\u8ba8\u4f1a"), "Chinese Academic page should include the Sun Yat-sen / GBA legal symposium");
+assert.ok(zhAcademicPage.includes("\u7b2c\u4e09\u5c4a\u5168\u56fd\u4f18\u79c0\u9752\u5e74\u5b66\u8005\u8bba\u575b"), "Chinese Academic page should include the IPP young scholars forum");
 
 const siteJs = fs.readFileSync(path.join(root, "assets/site.js"), "utf8");
 assert.ok(siteJs.includes("activeFilters"), "Filter script should combine active filters");
