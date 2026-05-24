@@ -138,6 +138,10 @@ assert.ok(
   data.cvSections.every((section) => section.title?.en && section.title?.zh && Array.isArray(section.items) && section.items.length > 0),
   "Every CV section should be bilingual and contain entries",
 );
+assert.ok(
+  data.cvSections.reduce((total, section) => total + section.items.length, 0) >= 42,
+  "CV page should include the full 2026 CV section detail, not only a short legacy summary",
+);
 
 assert.ok(data.publications.length >= 40, "Expected a substantial CV-derived publications list");
 assert.ok(data.publications.filter((item) => item.featured).length >= 5, "Homepage needs at least five featured publications");
@@ -335,7 +339,16 @@ for (const expected of [
   "University of Pennsylvania Law School",
   "State Bar of New York",
   "Young Researcher Award 2007-08",
+  "New Century Excellent Talents Award",
+  "Best Paper for Comparative Law in 2020",
   "Asia Pacific Law Review",
+  "Subject Editor, Asian Journal of Comparative Law",
+  "Guest Professor, National Institute for South China Sea Studies",
+  "Member of UNESCAP\u2019s Expert Group Meeting, 2025",
+  "Hong Kong Company Law",
+  "External reviewer, Oxford University Press",
+  "Faculty Curriculum Committee",
+  "Appointed by the Academic Degree Centre of the PRC Ministry of Education",
 ]) {
   assert.ok(cvPage.includes(expected), `English CV page missing expected content: ${expected}`);
 }
@@ -349,6 +362,11 @@ for (const expected of [
   "\u6559\u5b66",
   "\u7814\u7a76\u884c\u653f\u4e0e\u76f8\u5173\u670d\u52a1",
   "\u5bbe\u5915\u6cd5\u5c3c\u4e9a\u5927\u5b66\u6cd5\u5b66\u9662",
+  "\u4e2d\u56fd\u56fd\u9645\u8d38\u6613\u4fc3\u8fdb\u59d4\u5458\u4f1a\u9655\u897f\u7701\u5206\u4f1a\u5546\u4e8b\u6cd5\u5f8b\u4e13\u5bb6\u54a8\u8be2\u59d4\u5458\u4f1a\u59d4\u5458",
+  "\u5357\u4eac\u56fd\u9645\u5546\u4e8b\u6cd5\u5ead\u4e13\u5bb6\u987e\u95ee",
+  "\u6df1\u5733\u56fd\u9645\u4ef2\u88c1\u9662\u4ef2\u88c1\u5458",
+  "\u9999\u6e2f\u516c\u53f8\u6cd5",
+  "\u6cd5\u5b66\u9662\u6559\u804c\u5458\u59d4\u5458\u4f1a\u6210\u5458",
 ]) {
   assert.ok(zhCvPage.includes(expected), `Chinese CV page missing expected content: ${expected}`);
 }

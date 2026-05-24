@@ -365,13 +365,13 @@ function cvItem(item, lang) {
   const details = (item.details || [])
     .map((detail) => `<li>${esc(localized(detail, lang))}</li>`)
     .join("");
+  const detailList = details ? `\n    <ul>${details}</ul>` : "";
   return `<article class="cv-item">
     <div class="cv-meta">
       <span>${esc(item.period)}</span>
       <span>${esc(localized(item.institution, lang))}</span>
     </div>
-    <h3>${esc(localized(item.title, lang))}</h3>
-    ${details ? `<ul>${details}</ul>` : ""}
+    <h3>${esc(localized(item.title, lang))}</h3>${detailList}
   </article>`;
 }
 
