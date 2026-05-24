@@ -244,6 +244,38 @@ export const academicActivities = [
     topicIds: ["foreign-related-rule-of-law", "international-order"],
   },
   {
+    id: "histories-international-law-book-publication-2026",
+    date: "2026-04-08",
+    role: "editor",
+    organizer: "CCCL, CityUHK School of Law",
+    title: {
+      en: "New Book Publication: Histories of International Law in China: All Under Heaven? Co-edited by Professor Jiangyu Wang, Published by Oxford University Press",
+      zh: "新書發布：王江雨教授聯合主編 Histories of International Law in China: All Under Heaven? 由牛津大學出版社出版",
+    },
+    summary: {
+      en: "CCCL announced the Oxford University Press publication of Histories of International Law in China: All Under Heaven?, co-edited by Professor Wang. The report notes that the volume grew from distinguished online lectures, workshops, and an international conference supported by CCCL, Wuhan University, and Fudan University.",
+      zh: "CCCL发布王江雨教授联合主编的牛津大学出版社新书 Histories of International Law in China: All Under Heaven?。报道说明，该书源于系列线上讲座、作者工作坊和国际会议，并体现CCCL、武汉大学与复旦大学围绕中国国际法史展开的长期学术合作。",
+    },
+    url: "https://www.cityu.edu.hk/slw/events-media/news/new-book-publication_by-professor-jiangyu-wang",
+    topicIds: ["international-order", "foreign-related-rule-of-law"],
+  },
+  {
+    id: "might-right-global-power-rivalry-2026",
+    date: "2026-03-23",
+    role: "host",
+    organizer: "HKCML and CCCL, CityUHK School of Law",
+    title: {
+      en: "Might vs. Right: Global Power Rivalry and the Future of International Law",
+      zh: "強權與公理：全球權力競爭與國際法的未來",
+    },
+    summary: {
+      en: "HKCML and CCCL jointly held a seminar on global power rivalry and the future of international law. Professor Wang moderated the session, which featured speakers from CUHK, CityUHK public and international affairs, and CityUHK School of Law.",
+      zh: "香港城市大学法律学院香港商务及海事法研究中心与中国法与比较法研究中心联合举办学术研讨会，王江雨教授主持会议，围绕全球权力竞争背景下国际法的未来走向展开讨论。",
+    },
+    url: "https://www.cityu.edu.hk/en/slw/events-media/news/hkcml-cccl-might-vs-right-seminar",
+    topicIds: ["international-order", "foreign-related-rule-of-law"],
+  },
+  {
     id: "gig-guangzhou-forum-2025",
     date: "2025-12-28",
     role: "speaker",
@@ -274,6 +306,22 @@ export const academicActivities = [
     },
     url: "https://researchblog.law.hku.hk/2025/12/hkualsa-young-scholars-conference.html?m=1",
     topicIds: ["foreign-related-rule-of-law", "international-order"],
+  },
+  {
+    id: "qualitative-research-sociology-law-2025",
+    date: "2025-11-14",
+    role: "host",
+    organizer: "CCCL, CityUHK School of Law",
+    title: {
+      en: "Qualitative Research in the Sociology of Law",
+      zh: "Qualitative Research in the Sociology of Law",
+    },
+    summary: {
+      en: "CCCL hosted a guest seminar on qualitative research methods in socio-legal studies. The event flyer listed Professor Wang as moderator, connecting empirical research methods with legal and social inquiry.",
+      zh: "CCCL举办关于法社会学质性研究方法的客座讲座，活动海报列明王江雨教授担任主持人，围绕经验研究、资料收集与分析、研究伦理及法社会学方法展开交流。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/CCCL/E20251114_Qualitative%20Research%20in%20the%20Sociology%20of%20Law.pdf",
+    topicIds: ["foreign-related-rule-of-law"],
   },
   {
     id: "cologne-east-asian-studies-mou-2025",
@@ -338,6 +386,22 @@ export const academicActivities = [
     },
     url: "https://www.cityu.edu.hk/slw/events-media/news/international-law-campus",
     topicIds: ["international-order", "foreign-related-rule-of-law"],
+  },
+  {
+    id: "cybersecurity-law-society-2025",
+    date: "2025-09-15",
+    role: "host",
+    organizer: "CCCL, CityUHK School of Law",
+    title: {
+      en: "Cybersecurity and Its Role in Law and Society",
+      zh: "网络安全与法律社会：Cybersecurity and Its Role in Law and Society",
+    },
+    summary: {
+      en: "CCCL hosted Professor Samgat Yermekbayev's lecture on cybersecurity, law, technology and governance. The report states that Professor Wang chaired and commented on the lecture.",
+      zh: "CCCL举办网络安全、法律、科技与治理专题讲座，邀请哈萨克斯坦 Satbayev University 第一副校长 Samgat Yermekbayev 教授主讲；报道说明王江雨教授担任主持并作评议。",
+    },
+    url: "https://www.cityu.edu.hk/slw/lib/doc/CCCL/2025_09/N20250915_Cybersecurity%20and%20Its%20Role%20in%20Law%20and%20Society.pdf",
+    topicIds: ["foreign-related-rule-of-law", "international-order"],
   },
   {
     id: "durham-gpi-mou-2025",
