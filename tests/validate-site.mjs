@@ -42,13 +42,13 @@ assert.ok(data.expertiseAreas.length >= 7, "Homepage should include expertise ar
 assert.ok(data.academicHighlights.length >= 6, "Homepage should include academic and professional highlights");
 
 assert.ok(Array.isArray(data.academicActivities), "Academic activities data must be exported");
-assert.ok(data.academicActivities.length >= 33, "Academic page should include an expanded activity set");
+assert.ok(data.academicActivities.length >= 41, "Academic page should include an expanded activity set");
 assert.ok(
   data.academicActivities.every((item) => item.id && item.date && item.title?.en && item.title?.zh && item.summary?.en && item.summary?.zh && item.url),
   "Academic activity records must be bilingual and source-linked",
 );
 const recentAcademicActivities = data.academicActivities.filter((item) => item.date >= "2024-05-24");
-assert.ok(recentAcademicActivities.length >= 23, "Academic page should prioritize a substantial past-two-years activity set");
+assert.ok(recentAcademicActivities.length >= 31, "Academic page should prioritize a substantial past-two-years activity set");
 assert.ok(
   data.academicActivities.every((item) => item.date >= "2021-05-24"),
   "Academic activity records should focus on the past five years",
@@ -87,9 +87,34 @@ for (const id of [
   "histories-international-law-book-publication-2026",
   "cybersecurity-law-society-2025",
   "qualitative-research-sociology-law-2025",
+  "corporate-legal-core-capacity-training-2026",
+  "gig-rules-linkage-regional-integration-2025",
+  "shaanxi-ccpit-foreign-related-rule-law-lecture-2025",
+  "sysu-geopolitics-international-economic-order-2025",
+  "fudan-us-national-security-strategy-2026",
+  "fudan-international-economic-law-future-2025",
+  "silk-road-institute-international-rule-making-lecture-2025",
+  "iia-apec-lecture-training-2026",
 ]) {
   assert.ok(data.academicActivities.some((item) => item.id === id), `Missing prioritized academic activity: ${id}`);
 }
+const academicActivityUrls = new Set(data.academicActivities.map((item) => item.url));
+assert.ok(
+  academicActivityUrls.has("https://mp.weixin.qq.com/s/LwWc8YQq__zlqNJDDpTXyQ"),
+  "Academic activities should include the GIG post-event recap",
+);
+assert.ok(
+  !academicActivityUrls.has("https://mp.weixin.qq.com/s/vxDN2QkIimoKTCLRU_IhHQ"),
+  "Academic activities should avoid adding the duplicate GIG preview",
+);
+assert.ok(
+  !academicActivityUrls.has("https://mp.weixin.qq.com/s/TfQdJV7hCP0AIsqAsJFzzQ"),
+  "Academic activities should avoid duplicating the existing Zhejiang Gongshang University seminar record",
+);
+assert.ok(
+  !academicActivityUrls.has("https://mp.weixin.qq.com/s/RMmLnDxwrskz-moU-G5Gow"),
+  "Academic activities should keep media-commentary items out of the Academic page",
+);
 
 assert.ok(data.publications.length >= 40, "Expected a substantial CV-derived publications list");
 assert.ok(data.publications.filter((item) => item.featured).length >= 5, "Homepage needs at least five featured publications");
@@ -254,12 +279,21 @@ assert.ok(academicPage.includes("Fudan University Law School"), "English Academi
 assert.ok(academicPage.includes("Might vs. Right: Global Power Rivalry and the Future of International Law"), "English Academic page should include the CCCL / HKCML seminar");
 assert.ok(academicPage.includes("Cybersecurity and Its Role in Law and Society"), "English Academic page should include the CCCL cybersecurity lecture");
 assert.ok(academicPage.includes("Qualitative Research in the Sociology of Law"), "English Academic page should include the CCCL research-methods lecture");
+assert.ok(academicPage.includes("2026 Enterprise Legal Affairs Core Capacity High-End Training"), "English Academic page should include the enterprise legal affairs training");
+assert.ok(academicPage.includes("Rules Linkage and Regional Integration"), "English Academic page should include the GIG rules-linkage seminar");
+assert.ok(academicPage.includes("China and International Rule-making"), "English Academic page should include the Silk Road Institute lecture");
 assert.ok(zhAcademicPage.includes("\u570b\u969b\u6cd5\u9032\u6821\u5712"), "Chinese Academic page should include the International Law on Campus report");
 assert.ok(zhAcademicPage.includes("\u738b\u6c5f\u96e8\u6559\u6388\u53d7\u9080\u53c3\u52a0\u7b2c\u516b\u5c46\u7d72\u535a\u6703\u671f\u9593\u4e3b\u8fa6\u7684\u570b\u969b\u5546\u4e8b\u6cd5\u5f8b\u670d\u52d9\u8207\u7d93\u8cbf\u5408\u4f5c\u5c0d\u63a5\u6703"), "Chinese Academic page should include the Silk Road Expo legal services report");
 assert.ok(zhAcademicPage.includes("\u7b2c\u516b\u5c4a\u7ca4\u6e2f\u6fb3\u6cd5\u5b66\u7814\u8ba8\u4f1a"), "Chinese Academic page should include the Sun Yat-sen / GBA legal symposium");
 assert.ok(zhAcademicPage.includes("\u7b2c\u4e09\u5c4a\u5168\u56fd\u4f18\u79c0\u9752\u5e74\u5b66\u8005\u8bba\u575b"), "Chinese Academic page should include the IPP young scholars forum");
 assert.ok(zhAcademicPage.includes("\u5f37\u6b0a\u8207\u516c\u7406\uff1a\u5168\u7403\u6b0a\u529b\u7af6\u722d\u8207\u570b\u969b\u6cd5\u7684\u672a\u4f86"), "Chinese Academic page should include the CCCL / HKCML seminar");
 assert.ok(zhAcademicPage.includes("\u7f51\u7edc\u5b89\u5168\u4e0e\u6cd5\u5f8b\u793e\u4f1a"), "Chinese Academic page should include the CCCL cybersecurity lecture");
+assert.ok(zhAcademicPage.includes("谋篇布局，2026企业法务核心能力高端培训"), "Chinese Academic page should include the enterprise legal affairs training");
+assert.ok(zhAcademicPage.includes("我院成功举办“规则衔接与区域融合：世界级湾区创新展望”学术研讨会"), "Chinese Academic page should include only the GIG recap activity");
+assert.ok(zhAcademicPage.includes("陕西省贸促会举办“陕西贸促大讲堂”暨习近平法治思想专题辅导"), "Chinese Academic page should include the Shaanxi CCPIT lecture");
+assert.ok(zhAcademicPage.includes("社科学术活动预告｜地缘政治对国际经济秩序的挑战"), "Chinese Academic page should include the Sun Yat-sen lecture");
+assert.ok(zhAcademicPage.includes("会议回顾 | “《美国国家安全战略（2025）》与国际法律秩序——正在发生和可能（不）会发生”跨学科研讨会"), "Chinese Academic page should include the Fudan national-security seminar");
+assert.ok(zhAcademicPage.includes("IIA培训｜第二期APEC大讲堂结业，提升干部服务保障APEC会议能力本领"), "Chinese Academic page should include the APEC training activity");
 
 const siteJs = fs.readFileSync(path.join(root, "assets/site.js"), "utf8");
 assert.ok(siteJs.includes("activeFilters"), "Filter script should combine active filters");
