@@ -302,16 +302,16 @@ function highlightList(lang) {
 function researchCards(lang) {
   return `<div class="research-grid">
     ${researchTopics
-      .map(
-        (topic) => `<article class="research-card">
+      .map((topic) => {
+        const status = topic.status === "verify" ? `\n            <span class="status">${esc(labels[lang].verify)}</span>` : "";
+        return `<article class="research-card">
           <div class="card-topline">
-            <span>${esc(topic.id.replaceAll("-", " "))}</span>
-            ${topic.status === "verify" ? `<span class="status">${esc(labels[lang].verify)}</span>` : ""}
+            <span>${esc(topic.id.replaceAll("-", " "))}</span>${status}
           </div>
           <h3><a href="${esc(topic.href)}">${esc(localized(topic.title, lang))}</a></h3>
           <p>${esc(localized(topic.description, lang))}</p>
-        </article>`,
-      )
+        </article>`;
+      })
       .join("")}
   </div>`;
 }

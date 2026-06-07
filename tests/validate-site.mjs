@@ -29,13 +29,21 @@ for (const rel of requiredFiles) {
 
 const data = await import(pathToFileURL(path.join(root, "src/data/site-data.mjs")).href);
 
-assert.equal(data.researchTopics.length, 7, "Expected exactly seven research topics");
+assert.equal(data.researchTopics.length, 11, "Expected exactly eleven research topics");
 assert.ok(data.researchTopics.every((topic) => topic.title?.en && topic.title?.zh), "Research topics must be bilingual");
-assert.ok(data.researchTopics.every((topic) => topic.href?.startsWith("https://")), "Research topic URLs must be HTTPS");
+assert.ok(data.researchTopics.every((topic) => /^https?:\/\//.test(topic.href || "")), "Research topic URLs must be complete HTTP(S) URLs");
 assert.ok(
   data.researchTopics.some((topic) => topic.id === "gba" && topic.status === "verify"),
   "GBA topic must be flagged for final verification",
 );
+for (const expectedTopicId of [
+  "lw6134-company-law-china",
+  "great-powers-rule-making",
+  "ai-geopolitics-law-teaching",
+  "legal-research-methodology",
+]) {
+  assert.ok(data.researchTopics.some((topic) => topic.id === expectedTopicId), `Missing research topic: ${expectedTopicId}`);
+}
 
 const profileNames = data.profileLinks.map((link) => link.label.en);
 assert.deepEqual(profileNames, ["CityUHK Profile", "CityUHK Scholar", "Google Scholar", "SSRN"], "Only verified profile links should be included");

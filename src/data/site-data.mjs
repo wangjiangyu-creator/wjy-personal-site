@@ -47,7 +47,7 @@ export const profile = {
 
 export const profileMetrics = [
   {
-    value: "7",
+    value: "11",
     label: { en: "research portals", zh: "个研究专题网站" },
     note: { en: "linked from this site", zh: "由本站集中链接" },
   },
@@ -222,6 +222,46 @@ export const researchTopics = [
       zh: "中国涉外法律能力、制度建设和法治战略资料。",
     },
     href: "https://shewai.eastlaw.wang",
+    status: "live",
+  },
+  {
+    id: "lw6134-company-law-china",
+    title: { en: "LW6134 Company Law in China", zh: "LW6134 中国公司法" },
+    description: {
+      en: "Course and research resources for Company Law in China, hosted through the Centre for Chinese and Comparative Law.",
+      zh: "中国公司法课程与研究资源，由中国法与比较法研究中心相关网站承载。",
+    },
+    href: "https://cccl.eastlaw.wang",
+    status: "live",
+  },
+  {
+    id: "great-powers-rule-making",
+    title: { en: "Great Powers and Rule-Making", zh: "大国与规则制定" },
+    description: {
+      en: "Research and teaching materials on great-power competition, institutional change, and international rule-making.",
+      zh: "关于大国竞争、制度变迁与国际规则制定的研究和教学资源。",
+    },
+    href: "https://rule.eastlaw.wang/",
+    status: "live",
+  },
+  {
+    id: "ai-geopolitics-law-teaching",
+    title: { en: "Teaching Law in the Age of AI and Geopolitics", zh: "人工智能与地缘政治时代的法律教学" },
+    description: {
+      en: "Teaching resources and reflections on legal education in an era shaped by artificial intelligence and geopolitics.",
+      zh: "关于人工智能与地缘政治影响下法律教育的教学资源与思考。",
+    },
+    href: "http://teaching.eastlaw.wang/",
+    status: "live",
+  },
+  {
+    id: "legal-research-methodology",
+    title: { en: "Legal Research Methodology", zh: "法律研究方法论" },
+    description: {
+      en: "Resources on legal research methods, scholarly writing, and research design for law students and researchers.",
+      zh: "面向法学学生与研究者的法律研究方法、学术写作与研究设计资源。",
+    },
+    href: "https://fangfa.eastlaw.wang",
     status: "live",
   },
 ];
