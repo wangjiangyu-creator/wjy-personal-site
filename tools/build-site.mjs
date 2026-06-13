@@ -207,6 +207,7 @@ function layout({ lang, page, title, description, body }) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)} | ${esc(localized(site.title, lang))}</title>
   <meta name="description" content="${esc(description)}">
+  <meta name="theme-color" content="#f7f5ef">
   <link rel="stylesheet" href="${prefix}assets/site.css">
   <script defer src="${prefix}assets/site.js"></script>
 </head>
@@ -422,19 +423,21 @@ function homePage(lang) {
 
   const body = `
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">${esc(localized(profile.role, lang))}</p>
-        <h1>${esc(localized(site.title, lang))}</h1>
-        <p class="lead">${esc(localized(site.subtitle, lang))}</p>
-        <p class="credentials">${esc(localized(profile.credentials, lang))}</p>
-        ${profileButtons(lang)}
-        <p class="verified-note">${esc(l.verified)}</p>
+    <div class="wrap hero-shell">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">${esc(localized(profile.role, lang))}</p>
+          <h1>${esc(localized(site.title, lang))}</h1>
+          <p class="lead">${esc(localized(site.subtitle, lang))}</p>
+          <p class="credentials">${esc(localized(profile.credentials, lang))}</p>
+          ${profileButtons(lang)}
+          <p class="verified-note">${esc(l.verified)}</p>
+        </div>
+        <aside class="portrait-panel" aria-label="${esc(localized(site.portrait.alt, lang))}">
+          <img src="${esc(resourceHref(site.portrait.src, lang))}" alt="${esc(localized(site.portrait.alt, lang))}" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="portrait-fallback" aria-hidden="true">WJY</div>
+        </aside>
       </div>
-      <aside class="portrait-panel" aria-label="${esc(localized(site.portrait.alt, lang))}">
-        <img src="${esc(resourceHref(site.portrait.src, lang))}" alt="${esc(localized(site.portrait.alt, lang))}" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-        <div class="portrait-fallback" aria-hidden="true">WJY</div>
-      </aside>
     </div>
   </section>
 
@@ -530,7 +533,7 @@ function publicationsPage(lang) {
   const topicOptions = researchTopics.map((topic) => ({ value: topic.id, label: localized(topic.title, lang) }));
   const body = `
   <section class="page-hero">
-    <div class="wrap">
+    <div class="wrap page-hero-inner">
       <p class="eyebrow">${esc(l.featuredPublications)}</p>
       <h1>${esc(l.allPublications)}</h1>
       <p class="lead">${esc(lang === "zh" ? "按类别整理的履历出版物列表，涵盖著作、期刊论文、书章、短文评论、工作论文和政策报告。" : "A CV-derived bibliography grouped by books, journal articles, chapters, commentaries, working papers, and policy papers.")}</p>
@@ -572,7 +575,7 @@ function commentariesPage(lang) {
   const topicOptions = researchTopics.map((topic) => ({ value: topic.id, label: localized(topic.title, lang) }));
   const body = `
   <section class="page-hero">
-    <div class="wrap">
+    <div class="wrap page-hero-inner">
       <p class="eyebrow">${esc(l.politicalCommentaries)}</p>
       <h1>${esc(l.politicalCommentaries)}</h1>
       <p class="lead">${esc(lang === "zh" ? "收录王江雨教授本人撰写的时政、国际关系、国际法与政治经济评论；中文文章优先保留原题名，英文版提供简介性翻译。" : "Authored commentaries by Professor Wang on current affairs, international law, economic relations, and Hong Kong. Chinese originals use concise English translations for orientation.")}</p>
@@ -615,7 +618,7 @@ function mediaPage(lang) {
   const topicOptions = researchTopics.map((topic) => ({ value: topic.id, label: localized(topic.title, lang) }));
   const body = `
   <section class="page-hero">
-    <div class="wrap">
+    <div class="wrap page-hero-inner">
       <p class="eyebrow">${esc(l.mediaCommentaries)}</p>
       <h1>${esc(l.mediaCommentaries)}</h1>
       <p class="lead">${esc(lang === "zh" ? "收录报刊、通讯社、电视、网络媒体和机构新闻中的采访、引用、报道与视频节目；王江雨教授本人撰写的评论文章已移至“时政评论”栏目。" : "A focused archive of interviews, quoted analysis, broadcast appearances, and news coverage. Authored opinion articles have moved to the parallel Commentaries section.")}</p>
@@ -655,7 +658,7 @@ function academicPage(lang) {
   const topicOptions = researchTopics.map((topic) => ({ value: topic.id, label: localized(topic.title, lang) }));
   const body = `
   <section class="page-hero">
-    <div class="wrap">
+    <div class="wrap page-hero-inner">
       <p class="eyebrow">${esc(l.academicActivities)}</p>
       <h1>${esc(l.academicActivities)}</h1>
       <p class="lead">${esc(lang === "zh" ? "近五年会议、论坛、讲座和学术交流记录；中文页保留会议报道原题，并提供中文简介。" : "A recent record of conferences, forums, lectures, and scholarly exchanges. Chinese-source reports are presented here with concise English translations for orientation.")}</p>
@@ -686,7 +689,7 @@ function cvPage(lang) {
   const l = labels[lang];
   const body = `
   <section class="page-hero">
-    <div class="wrap">
+    <div class="wrap page-hero-inner">
       <p class="eyebrow">${esc(l.cvTitle)}</p>
       <h1>${esc(l.cvTitle)}</h1>
       <p class="lead">${esc(l.cvSource)}</p>

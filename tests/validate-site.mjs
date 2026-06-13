@@ -553,5 +553,23 @@ assert.ok(siteJs.includes("activeFilters"), "Filter script should combine active
 
 const siteCss = fs.readFileSync(path.join(root, "assets/site.css"), "utf8");
 assert.ok(siteCss.includes("overflow-x: auto"), "Mobile filter rows should remain compact with horizontal scrolling");
+for (const expectedDesignToken of [
+  "--accent",
+  "--surface-raised",
+  "--shadow-soft",
+  "--radius-sm",
+]) {
+  assert.ok(siteCss.includes(expectedDesignToken), `Site stylesheet should include the modern design token ${expectedDesignToken}`);
+}
+for (const expectedSelector of [
+  ".hero-shell",
+  ".page-hero-inner",
+  ".record-card::before",
+  ".filter-panel",
+]) {
+  assert.ok(siteCss.includes(expectedSelector), `Site stylesheet should include redesigned selector ${expectedSelector}`);
+}
+assert.ok(index.includes("hero-shell"), "Homepage should use the redesigned hero shell");
+assert.ok(academicPage.includes("page-hero-inner"), "Interior pages should use the redesigned page hero wrapper");
 
 console.log("Website validation passed");
