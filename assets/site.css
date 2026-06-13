@@ -466,6 +466,52 @@ h3 {
   font-size: 0.9rem;
 }
 
+.record-role {
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.record-role strong {
+  color: var(--green-dark);
+}
+
+.record-attachments {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.record-attachments > strong {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.file-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.file-link {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface-muted);
+  padding: 5px 10px;
+  color: var(--green-dark);
+  font-size: 0.88rem;
+  font-weight: 680;
+  text-decoration: none;
+}
+
+.file-link:hover {
+  border-color: var(--green);
+  background: var(--surface);
+}
+
 .record-summary {
   border-left: 3px solid rgba(18, 107, 84, 0.28);
   padding-left: 12px;

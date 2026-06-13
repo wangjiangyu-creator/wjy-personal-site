@@ -52,13 +52,22 @@ assert.ok(data.expertiseAreas.length >= 7, "Homepage should include expertise ar
 assert.ok(data.academicHighlights.length >= 6, "Homepage should include academic and professional highlights");
 
 assert.ok(Array.isArray(data.academicActivities), "Academic activities data must be exported");
-assert.ok(data.academicActivities.length >= 41, "Academic page should include an expanded activity set");
+assert.ok(data.academicActivities.length >= 52, "Academic page should include an expanded activity set");
 assert.ok(
-  data.academicActivities.every((item) => item.id && item.date && item.title?.en && item.title?.zh && item.summary?.en && item.summary?.zh && item.url),
-  "Academic activity records must be bilingual and source-linked",
+  data.academicActivities.every(
+    (item) =>
+      item.id &&
+      item.date &&
+      item.title?.en &&
+      item.title?.zh &&
+      item.summary?.en &&
+      item.summary?.zh &&
+      (item.url || (item.sourceNote?.en && item.sourceNote?.zh) || item.attachments?.length),
+  ),
+  "Academic activity records must be bilingual and have either a public URL, an on-file source note, or a supporting attachment",
 );
 const recentAcademicActivities = data.academicActivities.filter((item) => item.date >= "2024-05-24");
-assert.ok(recentAcademicActivities.length >= 31, "Academic page should prioritize a substantial past-two-years activity set");
+assert.ok(recentAcademicActivities.length >= 42, "Academic page should prioritize a substantial past-two-years activity set");
 assert.ok(
   data.academicActivities.every((item) => item.date >= "2021-05-24"),
   "Academic activity records should focus on the past five years",
@@ -105,8 +114,126 @@ for (const id of [
   "fudan-international-economic-law-future-2025",
   "silk-road-institute-international-rule-making-lecture-2025",
   "iia-apec-lecture-training-2026",
+  "cass-gba-rule-of-law-forum-2025",
+  "hku-sustainability-antitrust-fiduciary-duties-workshop-2025",
+  "tsinghua-world-rule-of-law-forum-2025",
+  "uncitral-rcap-um-digital-trade-legal-harmonization-2025",
+  "hkcml-sustainability-iel-reform-2025",
+  "hkiltta-common-law-dialogue-2025",
+  "china-eu-common-ground-xian-2026",
+  "eurasia-economic-forum-bri-commercial-legal-services-2025",
+  "cccl-chinese-comparative-law-junior-scholars-forum-2026",
+  "hkipa-gba-cross-border-legal-rules-training-2026",
+  "hkmacao-institute-hainan-free-trade-port-seminar-2026",
 ]) {
   assert.ok(data.academicActivities.some((item) => item.id === id), `Missing prioritized academic activity: ${id}`);
+}
+for (const id of [
+  "hku-sustainability-antitrust-fiduciary-duties-workshop-2025",
+  "tsinghua-world-rule-of-law-forum-2025",
+  "hkcml-sustainability-iel-reform-2025",
+  "hkiltta-common-law-dialogue-2025",
+  "fudan-international-economic-law-future-2025",
+  "eurasia-economic-forum-bri-commercial-legal-services-2025",
+  "cccl-chinese-comparative-law-junior-scholars-forum-2026",
+  "hkipa-gba-cross-border-legal-rules-training-2026",
+  "hkmacao-institute-hainan-free-trade-port-seminar-2026",
+]) {
+  const activity = data.academicActivities.find((item) => item.id === id);
+  assert.ok(activity?.sourceNote?.en && activity?.sourceNote?.zh, `On-file academic activity should include a bilingual source note: ${id}`);
+}
+const requiredAcademicAttachments = new Map([
+  [
+    "cccl-chinese-comparative-law-junior-scholars-forum-2026",
+    [
+      "assets/academic/2026-cccl-junior-scholars-forum-poster.pdf",
+      "assets/academic/2026-cccl-junior-scholars-forum-programme.pdf",
+    ],
+  ],
+  [
+    "china-eu-common-ground-xian-2026",
+    ["assets/academic/2026-xian-china-eu-conference-handbook.pdf"],
+  ],
+  [
+    "hkiltta-common-law-dialogue-2025",
+    [
+      "assets/academic/2026-hkiltta-common-law-training-invitation.pdf",
+      "assets/academic/2026-hkiltta-common-law-training-programme.pdf",
+    ],
+  ],
+  [
+    "hkcml-sustainability-iel-reform-2025",
+    [
+      "assets/academic/2025-hkcml-sustainability-iel-reform-agenda.pdf",
+      "assets/academic/2025-hkcml-sustainability-iel-reform-poster.pdf",
+    ],
+  ],
+  [
+    "uncitral-rcap-um-digital-trade-legal-harmonization-2025",
+    ["assets/academic/2025-uncitral-rcap-um-joint-conference-program.pdf"],
+  ],
+  [
+    "tsinghua-world-rule-of-law-forum-2025",
+    ["assets/academic/2025-tsinghua-world-rule-of-law-forum-agenda.pdf"],
+  ],
+  [
+    "hku-sustainability-antitrust-fiduciary-duties-workshop-2025",
+    ["assets/academic/2025-hku-sustainability-workshop-programme.pdf"],
+  ],
+  [
+    "cass-gba-rule-of-law-forum-2025",
+    ["assets/academic/2025-cass-gba-rule-of-law-forum-programme.pdf"],
+  ],
+  [
+    "fudan-international-economic-law-future-2025",
+    ["assets/academic/2025-fudan-international-economic-law-future-invitation.pdf"],
+  ],
+  [
+    "multilateralism-international-rule-law-2025",
+    ["assets/academic/2025-world-international-law-congress-invitation.docx"],
+  ],
+  [
+    "eurasia-economic-forum-bri-commercial-legal-services-2025",
+    ["assets/academic/2025-eurasia-economic-forum-bri-commercial-legal-services-invitation.pdf"],
+  ],
+  [
+    "hkipa-gba-cross-border-legal-rules-training-2026",
+    [
+      "assets/academic/2026-hkipa-gba-cross-border-legal-rules-training-invitation.pdf",
+      "assets/academic/2026-hkipa-gba-cross-border-legal-rules-training-invitation-hkipa.pdf",
+    ],
+  ],
+  [
+    "hkmacao-institute-hainan-free-trade-port-seminar-2026",
+    [
+      "assets/academic/2026-hkmacao-institute-hainan-free-trade-port-invitation.pdf",
+      "assets/academic/2026-hkmacao-institute-hainan-free-trade-port-invitation-alt.pdf",
+      "assets/academic/2026-hkmacao-institute-hainan-free-trade-port-invitation-drc.pdf",
+    ],
+  ],
+]);
+for (const [id, hrefs] of requiredAcademicAttachments) {
+  const activity = data.academicActivities.find((item) => item.id === id);
+  assert.ok(activity?.attachments?.length >= hrefs.length, `Academic activity should include supporting PDF attachments: ${id}`);
+  assert.ok(
+    activity.attachments.every((attachment) => attachment.label?.en && attachment.label?.zh && attachment.href),
+    `Academic activity attachments must be bilingual and linkable: ${id}`,
+  );
+  for (const href of hrefs) {
+    assert.ok(activity.attachments.some((attachment) => attachment.href === href), `Missing attachment ${href} on ${id}`);
+    assert.ok(fs.existsSync(path.join(root, href)), `Missing academic attachment file: ${href}`);
+  }
+}
+for (const [id, phrase] of [
+  ["cccl-chinese-comparative-law-junior-scholars-forum-2026", "opening remarks"],
+  ["china-eu-common-ground-xian-2026", "panel speaker"],
+  ["hkiltta-common-law-dialogue-2025", "moderator"],
+  ["eurasia-economic-forum-bri-commercial-legal-services-2025", "roundtable"],
+  ["hkipa-gba-cross-border-legal-rules-training-2026", "lecturer"],
+  ["hkmacao-institute-hainan-free-trade-port-seminar-2026", "20-minute presentation"],
+]) {
+  const activity = data.academicActivities.find((item) => item.id === id);
+  assert.ok(activity?.roleNote?.en.toLowerCase().includes(phrase), `Academic activity should highlight Professor Wang's role: ${id}`);
 }
 const academicActivityUrls = new Set(data.academicActivities.map((item) => item.url));
 assert.ok(
@@ -321,6 +448,37 @@ assert.ok(academicPage.includes("Qualitative Research in the Sociology of Law"),
 assert.ok(academicPage.includes("2026 Enterprise Legal Affairs Core Capacity High-End Training"), "English Academic page should include the enterprise legal affairs training");
 assert.ok(academicPage.includes("Rules Linkage and Regional Integration"), "English Academic page should include the GIG rules-linkage seminar");
 assert.ok(academicPage.includes("China and International Rule-making"), "English Academic page should include the Silk Road Institute lecture");
+assert.ok(academicPage.includes("First Guangdong-Hong Kong-Macao Greater Bay Area Rule of Law Forum"), "English Academic page should include the CASS GBA rule-of-law forum");
+assert.ok(academicPage.includes("Workshop on Legal Frameworks for Sustainability Considerations in Antitrust"), "English Academic page should include the HKU sustainability-law workshop");
+assert.ok(academicPage.includes("The Impact of Geopolitics on the International Economic Order"), "English Academic page should include the Tsinghua World Forum keynote");
+assert.ok(academicPage.includes("Navigating Regulatory Plurality"), "English Academic page should include the UNCITRAL RCAP-UM digital-trade presentation");
+assert.ok(academicPage.includes("Weaponizing Green"), "English Academic page should include the HKCML sustainability and IEL reform presentation");
+assert.ok(academicPage.includes("HKILTTA dialogue"), "English Academic page should include the HKILTTA common-law dialogue");
+assert.ok(academicPage.includes("In Search of Common Ground: China-EU Economic Relations"), "English Academic page should include the China-EU economic relations conference");
+assert.ok(academicPage.includes("2026 CCCL Chinese and Comparative Law Junior Scholars Forum"), "English Academic page should include the CCCL junior scholars forum");
+assert.ok(academicPage.includes("GBA cross-border legal rules linkage training"), "English Academic page should include the HKIPA cross-border legal training");
+assert.ok(academicPage.includes("Hong Kong and Macau experience for Hainan Free Trade Port construction"), "English Academic page should include the Hainan Free Trade Port seminar");
+assert.ok(academicPage.includes("Eurasia Economic Forum"), "English Academic page should include the 2025 Eurasia Economic Forum event");
+assert.ok(academicPage.includes("Role:"), "English Academic page should visibly highlight Professor Wang's role");
+assert.ok(academicPage.includes("Supporting files"), "English Academic page should label attached programme and invitation files");
+assert.ok(academicPage.includes("2026-hkiltta-common-law-training-invitation.pdf"), "English Academic page should link the HKILTTA/SPC invitation PDF");
+assert.ok(academicPage.includes("2026-hkiltta-common-law-training-programme.pdf"), "English Academic page should link the HKILTTA/SPC programme PDF");
+assert.ok(academicPage.includes("2025-hkcml-sustainability-iel-reform-agenda.pdf"), "English Academic page should link the HKCML sustainability agenda PDF");
+assert.ok(academicPage.includes("2025-uncitral-rcap-um-joint-conference-program.pdf"), "English Academic page should link the UNCITRAL RCAP-UM programme PDF");
+assert.ok(academicPage.includes("2025-tsinghua-world-rule-of-law-forum-agenda.pdf"), "English Academic page should link the Tsinghua agenda PDF");
+assert.ok(academicPage.includes("2025-hku-sustainability-workshop-programme.pdf"), "English Academic page should link the HKU workshop programme PDF");
+assert.ok(academicPage.includes("2025-cass-gba-rule-of-law-forum-programme.pdf"), "English Academic page should link the CASS GBA forum programme PDF");
+assert.ok(academicPage.includes("2025-fudan-international-economic-law-future-invitation.pdf"), "English Academic page should link the Fudan invitation PDF");
+assert.ok(academicPage.includes("2025-world-international-law-congress-invitation.docx"), "English Academic page should link the World International Law Congress invitation Word file");
+assert.ok(
+  academicPage.includes("2025-eurasia-economic-forum-bri-commercial-legal-services-invitation.pdf"),
+  "English Academic page should link the Eurasia Economic Forum invitation PDF",
+);
+assert.ok(academicPage.includes("2026-cccl-junior-scholars-forum-programme.pdf"), "English Academic page should link the CCCL forum programme PDF");
+assert.ok(academicPage.includes("2026-xian-china-eu-conference-handbook.pdf"), "English Academic page should link the Xi'an conference handbook PDF");
+assert.ok(academicPage.includes("2026-hkipa-gba-cross-border-legal-rules-training-invitation.pdf"), "English Academic page should link the HKIPA invitation PDF");
+assert.ok(academicPage.includes("2026-hkmacao-institute-hainan-free-trade-port-invitation.pdf"), "English Academic page should link the Hong Kong-Macao Institute invitation PDF");
+assert.ok(academicPage.includes("Programme or invitation materials on file"), "English Academic page should disclose on-file sources for non-public programmes");
 assert.ok(zhAcademicPage.includes("\u570b\u969b\u6cd5\u9032\u6821\u5712"), "Chinese Academic page should include the International Law on Campus report");
 assert.ok(zhAcademicPage.includes("\u738b\u6c5f\u96e8\u6559\u6388\u53d7\u9080\u53c3\u52a0\u7b2c\u516b\u5c46\u7d72\u535a\u6703\u671f\u9593\u4e3b\u8fa6\u7684\u570b\u969b\u5546\u4e8b\u6cd5\u5f8b\u670d\u52d9\u8207\u7d93\u8cbf\u5408\u4f5c\u5c0d\u63a5\u6703"), "Chinese Academic page should include the Silk Road Expo legal services report");
 assert.ok(zhAcademicPage.includes("\u7b2c\u516b\u5c4a\u7ca4\u6e2f\u6fb3\u6cd5\u5b66\u7814\u8ba8\u4f1a"), "Chinese Academic page should include the Sun Yat-sen / GBA legal symposium");
@@ -333,6 +491,17 @@ assert.ok(zhAcademicPage.includes("陕西省贸促会举办“陕西贸促大讲
 assert.ok(zhAcademicPage.includes("社科学术活动预告｜地缘政治对国际经济秩序的挑战"), "Chinese Academic page should include the Sun Yat-sen lecture");
 assert.ok(zhAcademicPage.includes("会议回顾 | “《美国国家安全战略（2025）》与国际法律秩序——正在发生和可能（不）会发生”跨学科研讨会"), "Chinese Academic page should include the Fudan national-security seminar");
 assert.ok(zhAcademicPage.includes("IIA培训｜第二期APEC大讲堂结业，提升干部服务保障APEC会议能力本领"), "Chinese Academic page should include the APEC training activity");
+assert.ok(zhAcademicPage.includes("首届粤港澳大湾区法治论坛"), "Chinese Academic page should include the CASS GBA rule-of-law forum");
+assert.ok(zhAcademicPage.includes("重新概念化可持续性"), "Chinese Academic page should include the HKCML sustainability and IEL reform programme");
+assert.ok(zhAcademicPage.includes("寻找共同点：全球失序时代的中欧经济关系"), "Chinese Academic page should include the China-EU economic relations conference");
+assert.ok(zhAcademicPage.includes("2026 CCCL中国法与比较法青年学者论坛"), "Chinese Academic page should include the CCCL junior scholars forum");
+assert.ok(zhAcademicPage.includes("粤港澳大湾区跨境法律规则衔接机制对接专题培训班"), "Chinese Academic page should include the HKIPA cross-border legal training");
+assert.ok(zhAcademicPage.includes("香港、澳门经验对海南自由贸易港建设的借鉴与启示"), "Chinese Academic page should include the Hainan Free Trade Port seminar");
+assert.ok(zhAcademicPage.includes("2025欧亚经济论坛"), "Chinese Academic page should include the Eurasia Economic Forum event");
+assert.ok(zhAcademicPage.includes("身份："), "Chinese Academic page should visibly highlight Professor Wang's role");
+assert.ok(zhAcademicPage.includes("附件"), "Chinese Academic page should label attached programme and invitation files");
+assert.ok(zhAcademicPage.includes("../assets/academic/2025-eurasia-economic-forum-bri-commercial-legal-services-invitation.pdf"), "Chinese Academic page should link the Eurasia Economic Forum invitation PDF");
+assert.ok(zhAcademicPage.includes("会议或邀请材料存档"), "Chinese Academic page should disclose on-file sources for non-public programmes");
 assert.ok(cvPage.includes("C.V."), "English CV page should use the C.V. heading");
 for (const expected of [
   "Education",

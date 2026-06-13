@@ -817,6 +817,254 @@ export const cvSections = [
 
 export const academicActivities = [
   {
+    id: "cccl-chinese-comparative-law-junior-scholars-forum-2026",
+    date: "2026-06-11",
+    role: "speaker",
+    organizer: "Centre for Chinese and Comparative Law, CityUHK School of Law",
+    title: {
+      en: "2026 CCCL Chinese and Comparative Law Junior Scholars Forum: The Study of Chinese Law in the Age of AI",
+      zh: "2026 CCCL中国法与比较法青年学者论坛：人工智能时代的中国法研究",
+    },
+    summary: {
+      en: "The forum programme listed Professor Wang, Director of CCCL, as delivering opening remarks, giving a June 12 sharing session titled In Search of Insights in the Age of AI-Empowered Legal Research, joining the Editors-in-Chief panel, and giving closing remarks.",
+      zh: "论坛议程列明王江雨教授以CCCL主任身份致开幕辞，于6月12日作题为“In Search of Insights in the Age of AI-Empowered Legal Research”的专题分享，参加主编圆桌，并致闭幕辞。",
+    },
+    roleNote: {
+      en: "Opening remarks, sharing speaker, Editors-in-Chief panel speaker, and closing remarks as Director of CCCL.",
+      zh: "以CCCL主任身份致开幕辞、作专题分享、参加主编圆桌并致闭幕辞。",
+    },
+    sourceNote: {
+      en: "Programme and poster materials on file.",
+      zh: "会议议程及海报材料存档。",
+    },
+    attachments: [
+      {
+        label: { en: "Conference poster (PDF)", zh: "会议海报（PDF）" },
+        href: "assets/academic/2026-cccl-junior-scholars-forum-poster.pdf",
+      },
+      {
+        label: { en: "Conference programme (PDF)", zh: "会议议程（PDF）" },
+        href: "assets/academic/2026-cccl-junior-scholars-forum-programme.pdf",
+      },
+    ],
+    topicIds: ["ai-geopolitics-law-teaching", "legal-research-methodology", "foreign-related-rule-of-law"],
+  },
+  {
+    id: "china-eu-common-ground-xian-2026",
+    date: "2026-05-29",
+    role: "speaker",
+    organizer: "Xi'an Jiaotong University",
+    title: {
+      en: "In Search of Common Ground: China-EU Economic Relations in Times of Global Disorder",
+      zh: "寻找共同点：全球失序时代的中欧经济关系",
+    },
+    summary: {
+      en: "The Xi'an conference handbook listed Professor Wang as a Panel 5 speaker on industrial subsidies and policy of China and the EU, with panel guidance addressing state-market relations, subsidy disciplines, trade friction, and possible WTO responses.",
+      zh: "西安会议手册列明王江雨教授为第五单元“中欧产业补贴与产业政策”发言嘉宾；小组指引围绕国家与市场关系、补贴规则、贸易摩擦及可能的WTO制度回应向其提出讨论问题。",
+    },
+    roleNote: {
+      en: "Panel speaker on industrial subsidies and policy of China and the EU.",
+      zh: "中欧产业补贴与产业政策单元发言嘉宾。",
+    },
+    url: "https://ielp.worldtradelaw.net/2026/05/conference-on-in-search-of-common-ground-china-eu-economic-relations-in-times-of-global-disorder/",
+    attachments: [
+      {
+        label: { en: "Conference handbook (PDF)", zh: "会议手册（PDF）" },
+        href: "assets/academic/2026-xian-china-eu-conference-handbook.pdf",
+      },
+    ],
+    topicIds: ["ielr", "international-order"],
+  },
+  {
+    id: "hkipa-gba-cross-border-legal-rules-training-2026",
+    date: "2026-05-17",
+    role: "speaker",
+    organizer: "Hong Kong Institute for Public Administration",
+    title: {
+      en: "GBA cross-border legal rules linkage training",
+      zh: "粤港澳大湾区跨境法律规则衔接机制对接专题培训班",
+    },
+    summary: {
+      en: "The HKIPA training programme for 17-23 May 2026 listed Professor Wang as the lecturer for the opening-day session on legal and compliance risks for Chinese enterprises going overseas in an era of geopolitical and economic competition, covering trade and technology tensions, sanctions and counter-sanctions, long-arm jurisdiction, and future risks and opportunities.",
+      zh: "香港公共行政学院2026年5月17日至23日培训日程列明，王江雨教授在开班首日主讲“地缘政治经济竞争时代中国企业出海的法律与合规风险”，内容涵盖中美贸易战、关税战、技术冷战、制裁与反制裁、长臂管辖权及未来机遇与挑战。",
+    },
+    roleNote: {
+      en: "Lecturer for the 17 May session on outbound legal and compliance risks.",
+      zh: "5月17日“中国企业出海法律与合规风险”专题讲座授课专家。",
+    },
+    sourceNote: {
+      en: "Invitation and programme materials on file.",
+      zh: "邀请函及课程日程材料存档。",
+    },
+    attachments: [
+      {
+        label: { en: "Invitation and programme (PDF)", zh: "邀请函及日程（PDF）" },
+        href: "assets/academic/2026-hkipa-gba-cross-border-legal-rules-training-invitation.pdf",
+      },
+      {
+        label: { en: "HKIPA invitation copy (PDF)", zh: "香港公共行政学院邀请函副本（PDF）" },
+        href: "assets/academic/2026-hkipa-gba-cross-border-legal-rules-training-invitation-hkipa.pdf",
+      },
+    ],
+    topicIds: ["gba", "hong-kong", "foreign-related-rule-of-law", "sanctions"],
+  },
+  {
+    id: "hkiltta-common-law-dialogue-2025",
+    date: "2026-01-16",
+    role: "speaker",
+    organizer: "Hong Kong International Legal Talents Training Academy",
+    title: {
+      en: "HKILTTA dialogue on common law, mainland adjudication and Greater Bay Area legal connectivity",
+      zh: "香港国际法律人才培训学院普通法与大湾区规则衔接对话会",
+    },
+    summary: {
+      en: "The Hong Kong International Legal Talents Training Academy and the Department of Justice invited Professor Wang to moderate the dialogue session Roles of Courts and Judges in the Hong Kong Common Law Practical Training Course - Company Law in Focus, a course co-organized by the Academy and the Supreme People's Court of the People's Republic of China.",
+      zh: "以王江雨教授香港城市大学法学院身份准备的对话会拟题，围绕普通法判例制度、内地司法改革、一国两制及粤港澳大湾区规则衔接和机制对接，向内地法官及香港法律界人士设置讨论问题。",
+    },
+    roleNote: {
+      en: "Moderator of the Roles of Courts and Judges dialogue session.",
+      zh: "担任“法院与法官角色”对话环节主持人。",
+    },
+    sourceNote: {
+      en: "Programme or invitation materials on file.",
+      zh: "会议或邀请材料存档。",
+    },
+    attachments: [
+      {
+        label: { en: "Invitation letter (PDF)", zh: "邀请函（PDF）" },
+        href: "assets/academic/2026-hkiltta-common-law-training-invitation.pdf",
+      },
+      {
+        label: { en: "Draft programme (PDF)", zh: "日程草案（PDF）" },
+        href: "assets/academic/2026-hkiltta-common-law-training-programme.pdf",
+      },
+    ],
+    topicIds: ["gba", "hong-kong", "foreign-related-rule-of-law"],
+  },
+  {
+    id: "hkcml-sustainability-iel-reform-2025",
+    date: "2025-12-05",
+    role: "speaker",
+    organizer: "Hong Kong Commercial and Maritime Law Centre, CityUHK School of Law",
+    title: {
+      en: "Reconceptualizing Sustainability: Critical Perspectives for International Economic Law Reform",
+      zh: "重新概念化可持续性：国际经济法改革的批判视角",
+    },
+    summary: {
+      en: "The CityUHK School of Law programme for 5-6 December 2025 listed Professor Wang's presentation, Weaponizing Green: Geopolitical Rivalry and the Transformation of Rule-making for Sustainability from Norm to Strategic Tool in International Economic Law.",
+      zh: "香港城市大学法学院2025年12月5日至6日会议议程列明王江雨教授报告，题为“Weaponizing Green: Geopolitical Rivalry and the Transformation of Rule-making for Sustainability from Norm to Strategic Tool in International Economic Law”。",
+    },
+    sourceNote: {
+      en: "Programme or invitation materials on file.",
+      zh: "会议或邀请材料存档。",
+    },
+    attachments: [
+      {
+        label: { en: "Conference agenda (PDF)", zh: "会议议程（PDF）" },
+        href: "assets/academic/2025-hkcml-sustainability-iel-reform-agenda.pdf",
+      },
+      {
+        label: { en: "Conference poster (PDF)", zh: "会议海报（PDF）" },
+        href: "assets/academic/2025-hkcml-sustainability-iel-reform-poster.pdf",
+      },
+    ],
+    topicIds: ["ielr", "international-order"],
+  },
+  {
+    id: "uncitral-rcap-um-digital-trade-legal-harmonization-2025",
+    date: "2025-11-24",
+    role: "speaker",
+    organizer: "UNCITRAL Regional Centre for Asia and the Pacific and University of Macau Faculty of Law",
+    title: {
+      en: "UNCITRAL RCAP-University of Macau Joint Conference Program",
+      zh: "联合国贸法会亚太区域中心-澳门大学联合会议",
+    },
+    summary: {
+      en: "The programme listed Professor Wang in Session VII, chaired by Professor Li Ke, presenting Navigating Regulatory Plurality: Legal Harmonization for Digital Trade and E-Commerce in the Guangdong-Hong Kong-Macau Greater Bay Area.",
+      zh: "会议议程列明王江雨教授在李可教授主持的第七单元发言，题为“Navigating Regulatory Plurality: Legal Harmonization for Digital Trade and E-Commerce in the Guangdong-Hong Kong-Macau Greater Bay Area”。",
+    },
+    url: "https://fll.um.edu.mo/wp-content/uploads/2025/11/UNCITRAL-RCAP-UM-Joint-Conference-Program.pdf",
+    attachments: [
+      {
+        label: { en: "Conference programme (PDF)", zh: "会议议程（PDF）" },
+        href: "assets/academic/2025-uncitral-rcap-um-joint-conference-program.pdf",
+      },
+    ],
+    topicIds: ["gba", "ielr"],
+  },
+  {
+    id: "tsinghua-world-rule-of-law-forum-2025",
+    date: "2025-11-22",
+    role: "speaker",
+    organizer: "Tsinghua University School of Law",
+    title: {
+      en: "8th Tsinghua World Forum on the Rule of Law",
+      zh: "第八届清华大学世界法治论坛暨清华大学法学院复建30周年",
+    },
+    summary: {
+      en: "The forum programme listed Professor Wang as a keynote speaker in the session moderated by Professor Yang Guohua, with the presentation The Impact of Geopolitics on the International Economic Order: Finding a Safe Harbour?",
+      zh: "论坛议程列明王江雨教授在杨国华教授主持的主旨发言环节报告，题为“The Impact of Geopolitics on the International Economic Order: Finding a Safe Harbour?”。",
+    },
+    sourceNote: {
+      en: "Programme or invitation materials on file.",
+      zh: "会议或邀请材料存档。",
+    },
+    attachments: [
+      {
+        label: { en: "Forum agenda (PDF)", zh: "论坛议程（PDF）" },
+        href: "assets/academic/2025-tsinghua-world-rule-of-law-forum-agenda.pdf",
+      },
+    ],
+    topicIds: ["ielr", "international-order"],
+  },
+  {
+    id: "hku-sustainability-antitrust-fiduciary-duties-workshop-2025",
+    date: "2025-07-10",
+    role: "speaker",
+    organizer: "University of Hong Kong Faculty of Law",
+    title: {
+      en: "Workshop on Legal Frameworks for Sustainability Considerations in Antitrust and Fiduciary Duties in Asian Countries",
+      zh: "亚洲国家反垄断与受托责任中可持续性考量法律框架工作坊",
+    },
+    summary: {
+      en: "The workshop file listed Professor Wang as the China contributor for a 10 July 2025 workshop on sustainability considerations in antitrust, fiduciary duties, asset managers, regulatory enforcement, and reform in Asian jurisdictions.",
+      zh: "工作坊文件列明王江雨教授为2025年7月10日会议的中国部分贡献者，议题涉及亚洲法域中反垄断、受托责任、资产管理人、监管执法及制度改革中的可持续性考量。",
+    },
+    sourceNote: {
+      en: "Programme or invitation materials on file.",
+      zh: "会议或邀请材料存档。",
+    },
+    attachments: [
+      {
+        label: { en: "Workshop programme (PDF)", zh: "工作坊议程（PDF）" },
+        href: "assets/academic/2025-hku-sustainability-workshop-programme.pdf",
+      },
+    ],
+    topicIds: ["ielr", "foreign-related-rule-of-law"],
+  },
+  {
+    id: "cass-gba-rule-of-law-forum-2025",
+    date: "2025-07-04",
+    role: "speaker",
+    organizer: "Chinese Academy of Social Sciences Institute of Law and Institute of International Law",
+    title: {
+      en: "First Guangdong-Hong Kong-Macao Greater Bay Area Rule of Law Forum",
+      zh: "首届粤港澳大湾区法治论坛",
+    },
+    summary: {
+      en: "The CASS Institutes of Law and International Law and related Qianhai rule-of-law platforms convened the first GBA rule-of-law forum in Shenzhen. The programme and public report listed Professor Wang among speakers discussing rule-of-law development in the Greater Bay Area.",
+      zh: "中国社会科学院法学研究所、国际法研究所及前海相关法治平台在深圳举办首届粤港澳大湾区法治论坛。会议议程及公开报道列明王江雨教授为发言嘉宾，围绕大湾区法治建设展开讨论。",
+    },
+    url: "https://www.scia.com.cn/news/detail/1679.html",
+    attachments: [
+      {
+        label: { en: "Forum programme (PDF)", zh: "论坛议程（PDF）" },
+        href: "assets/academic/2025-cass-gba-rule-of-law-forum-programme.pdf",
+      },
+    ],
+    topicIds: ["gba", "foreign-related-rule-of-law"],
+  },
+  {
     id: "must-cross-border-legal-review-forum-2026",
     date: "2026-04-29",
     role: "editor",
@@ -863,6 +1111,43 @@ export const academicActivities = [
     },
     url: "https://mp.weixin.qq.com/s/ubjb1upqZ3u62KUnk_k4hA",
     topicIds: ["international-order", "ielr", "gba"],
+  },
+  {
+    id: "hkmacao-institute-hainan-free-trade-port-seminar-2026",
+    date: "2026-03-28",
+    role: "speaker",
+    organizer: "Hong Kong-Macao Institute, Development Research Center of the State Council",
+    title: {
+      en: "Seminar on Hong Kong and Macau experience for Hainan Free Trade Port construction",
+      zh: "“香港、澳门经验对海南自由贸易港建设的借鉴与启示”研讨会",
+    },
+    summary: {
+      en: "The invitation from the Hong Kong-Macao Institute invited Professor Wang to the Beijing seminar on Hong Kong and Macau experience for Hainan Free Trade Port construction and asked him to prepare a 20-minute thematic presentation on comparative institutional advantages, policy innovation, rule-of-law safeguards, talent attraction, trade logistics, cross-border services, and national security.",
+      zh: "国务院发展研究中心港澳研究所邀请王江雨教授出席在北京举行的“香港、澳门经验对海南自由贸易港建设的借鉴与启示”研讨会，并准备20分钟主题发言；会议聚焦港、澳、琼三地制度异同与比较优势，以及政策创新、法治保障、人才引进、贸易物流、跨境服务、国家安全等议题。",
+    },
+    roleNote: {
+      en: "Invited speaker preparing a 20-minute presentation.",
+      zh: "受邀参会并准备20分钟主题发言。",
+    },
+    sourceNote: {
+      en: "Invitation materials on file.",
+      zh: "邀请函材料存档。",
+    },
+    attachments: [
+      {
+        label: { en: "Invitation letter (PDF)", zh: "邀请函（PDF）" },
+        href: "assets/academic/2026-hkmacao-institute-hainan-free-trade-port-invitation.pdf",
+      },
+      {
+        label: { en: "Invitation letter copy (PDF)", zh: "邀请函副本（PDF）" },
+        href: "assets/academic/2026-hkmacao-institute-hainan-free-trade-port-invitation-alt.pdf",
+      },
+      {
+        label: { en: "DRC invitation copy (PDF)", zh: "国务院发展研究中心邀请函副本（PDF）" },
+        href: "assets/academic/2026-hkmacao-institute-hainan-free-trade-port-invitation-drc.pdf",
+      },
+    ],
+    topicIds: ["hong-kong", "gba", "foreign-related-rule-of-law"],
   },
   {
     id: "corporate-legal-core-capacity-training-2026",
@@ -926,7 +1211,46 @@ export const academicActivities = [
       zh: "复旦大学涉外法治研究中心在江湾校区举办研讨会，讨论国际经济法未来十年及更长时期的可能走向；王江雨教授参与对谈并在第二单元作主旨发言，议题涉及国有企业规则范式、WTO-1可能性及国际经济法的国家转向。",
     },
     url: "https://mp.weixin.qq.com/s/rhpWxL60z01YfqGIRn-mzw",
+    sourceNote: {
+      en: "Invitation materials on file.",
+      zh: "邀请函材料存档。",
+    },
+    attachments: [
+      {
+        label: { en: "Invitation letter (PDF)", zh: "邀请函（PDF）" },
+        href: "assets/academic/2025-fudan-international-economic-law-future-invitation.pdf",
+      },
+    ],
     topicIds: ["ielr", "international-order", "foreign-related-rule-of-law"],
+  },
+  {
+    id: "eurasia-economic-forum-bri-commercial-legal-services-2025",
+    date: "2025-09-23",
+    role: "speaker",
+    organizer: "Xi'an Municipal Justice Bureau",
+    title: {
+      en: "Eurasia Economic Forum Belt and Road Commercial Legal Services Sub-forum",
+      zh: "2025欧亚经济论坛“一带一路”商事法律服务分会",
+    },
+    summary: {
+      en: "The Xi'an Municipal Justice Bureau invited Professor Wang as a roundtable dialogue guest for the 2025 Eurasia Economic Forum Belt and Road Commercial Legal Services Sub-forum, held in Xi'an on 23 September 2025 under the theme Deepening Connectivity and Jointly Building a Rule-of-Law Silk Road.",
+      zh: "西安市司法局邀请王江雨教授作为圆桌对话嘉宾出席2025欧亚经济论坛“一带一路”商事法律服务分会。分会于2025年9月23日在西安举行，主题为“深化互联互通，共筑法治丝路”。",
+    },
+    roleNote: {
+      en: "Roundtable dialogue guest for the commercial legal services sub-forum.",
+      zh: "担任商事法律服务分会圆桌对话嘉宾。",
+    },
+    sourceNote: {
+      en: "Invitation and activity-arrangement materials on file.",
+      zh: "邀请函及活动安排材料存档。",
+    },
+    attachments: [
+      {
+        label: { en: "Invitation and activity arrangement (PDF)", zh: "邀请函及活动安排（PDF）" },
+        href: "assets/academic/2025-eurasia-economic-forum-bri-commercial-legal-services-invitation.pdf",
+      },
+    ],
+    topicIds: ["foreign-related-rule-of-law", "ielr", "international-order"],
   },
   {
     id: "gig-rules-linkage-regional-integration-2025",
@@ -1182,6 +1506,12 @@ export const academicActivities = [
       zh: "王江雨教授应邀出席纪念联合国成立80周年国际研讨会，并以“国际秩序多极化转型时代国际法的角色变迁”为题发表演讲，讨论国际法在全球秩序重构中的稳定与调节功能。",
     },
     url: "https://www.cityu.edu.hk/slw/lib/doc/CCCL/News_20251023_24.pdf",
+    attachments: [
+      {
+        label: { en: "Invitation letter (DOCX)", zh: "邀请函（DOCX）" },
+        href: "assets/academic/2025-world-international-law-congress-invitation.docx",
+      },
+    ],
     topicIds: ["international-order", "foreign-related-rule-of-law"],
   },
   {

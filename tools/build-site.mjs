@@ -50,6 +50,8 @@ const labels = {
     verified: "Verified profile links only",
     verify: "Requires final publication check",
     sourceNote: "Sources",
+    role: "Role",
+    attachments: "Supporting files",
     filterAll: "All",
     categories: "Publication Categories",
     commentaryFilters: "Commentary Filters",
@@ -88,6 +90,8 @@ const labels = {
     verified: "仅列入已核实主页",
     verify: "发布前需再次核验",
     sourceNote: "资料来源",
+    role: "身份",
+    attachments: "附件",
     filterAll: "全部",
     categories: "出版物类别",
     commentaryFilters: "时政评论筛选",
@@ -353,6 +357,17 @@ function mediaCard(item, lang, compact = false) {
 function academicCard(item, lang) {
   const title = localized(item.title, lang) || localized(item.title, "en");
   const summary = localized(item.summary, lang);
+  const sourceNote = localized(item.sourceNote, lang);
+  const roleNote = localized(item.roleNote, lang);
+  const colon = lang === "zh" ? "：" : ":";
+  const roleNoteMarkup = roleNote ? `\n    <p class="record-role"><strong>${esc(labels[lang].role)}${colon}</strong> ${esc(roleNote)}</p>` : "";
+  const sourceNoteMarkup = sourceNote ? `\n    <p class="record-note">${esc(sourceNote)}</p>` : "";
+  const attachments = (item.attachments || [])
+    .map((attachment) => `<a class="file-link" href="${esc(resourceHref(attachment.href, lang))}">${esc(localized(attachment.label, lang))}</a>`)
+    .join("");
+  const attachmentsMarkup = attachments
+    ? `\n    <div class="record-attachments" aria-label="${esc(labels[lang].attachments)}"><strong>${esc(labels[lang].attachments)}</strong><div class="file-links">${attachments}</div></div>`
+    : "";
   const topics = item.topicIds.map((id) => `<span>${esc(topicLookup(id, lang))}</span>`).join("");
   return `<article class="record-card" data-record data-role="${esc(item.role)}" data-topic="${esc(item.topicIds.join(" "))}" data-year="${esc(item.date.slice(0, 4))}">
     <div class="record-meta">
@@ -361,7 +376,7 @@ function academicCard(item, lang) {
       <span>${esc(item.organizer)}</span>
     </div>
     <h3>${externalLink(item, title)}</h3>
-    <p>${esc(summary)}</p>
+    <p>${esc(summary)}</p>${roleNoteMarkup}${sourceNoteMarkup}${attachmentsMarkup}
     <div class="tags">${topics}</div>
   </article>`;
 }
