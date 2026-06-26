@@ -29,7 +29,7 @@ for (const rel of requiredFiles) {
 
 const data = await import(pathToFileURL(path.join(root, "src/data/site-data.mjs")).href);
 
-assert.equal(data.researchTopics.length, 11, "Expected exactly eleven research topics");
+assert.equal(data.researchTopics.length, 12, "Expected exactly twelve research topics");
 assert.ok(data.researchTopics.every((topic) => topic.title?.en && topic.title?.zh), "Research topics must be bilingual");
 assert.ok(data.researchTopics.every((topic) => /^https?:\/\//.test(topic.href || "")), "Research topic URLs must be complete HTTP(S) URLs");
 assert.ok(
@@ -41,6 +41,7 @@ for (const expectedTopicId of [
   "great-powers-rule-making",
   "ai-geopolitics-law-teaching",
   "legal-research-methodology",
+  "chinese-enterprises-going-global",
 ]) {
   assert.ok(data.researchTopics.some((topic) => topic.id === expectedTopicId), `Missing research topic: ${expectedTopicId}`);
 }
@@ -379,6 +380,7 @@ for (const expected of [
   "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=372334",
   "https://int.eastlaw.wang",
   "https://gba.eastlaw.wang",
+  "https://chuhai.eastlaw.wang/",
 ]) {
   assert.ok(index.includes(expected), `Homepage missing expected link: ${expected}`);
 }

@@ -47,7 +47,7 @@ export const profile = {
 
 export const profileMetrics = [
   {
-    value: "11",
+    value: "12",
     label: { en: "research portals", zh: "个研究专题网站" },
     note: { en: "linked from this site", zh: "由本站集中链接" },
   },
@@ -222,6 +222,16 @@ export const researchTopics = [
       zh: "中国涉外法律能力、制度建设和法治战略资料。",
     },
     href: "https://shewai.eastlaw.wang",
+    status: "live",
+  },
+  {
+    id: "chinese-enterprises-going-global",
+    title: { en: "Chinese Enterprises Going Global", zh: "\u4e2d\u56fd\u4f01\u4e1a\u51fa\u6d77" },
+    description: {
+      en: "Research and practical resources on Chinese companies' overseas expansion, cross-border compliance, risk management, and global business governance.",
+      zh: "\u5173\u4e8e\u4e2d\u56fd\u4f01\u4e1a\u6d77\u5916\u53d1\u5c55\u3001\u8de8\u5883\u5408\u89c4\u3001\u98ce\u9669\u7ba1\u7406\u4e0e\u5168\u7403\u5546\u4e1a\u6cbb\u7406\u7684\u7814\u7a76\u548c\u5b9e\u52a1\u8d44\u6e90\u3002",
+    },
+    href: "https://chuhai.eastlaw.wang/",
     status: "live",
   },
   {
